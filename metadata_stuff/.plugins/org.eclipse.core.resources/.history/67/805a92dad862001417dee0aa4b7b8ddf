@@ -1,0 +1,107 @@
+package com.example.battlefordentalperfection;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends ActionBarActivity {
+
+	boolean bIsEng = true;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main_menu);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		//creates listeners for each button
+		Button buttonBios = (Button) findViewById(R.id.buttonBios);
+		buttonBios.setOnClickListener(buttonBiosListener);
+		
+		Button buttonReminder = (Button) findViewById(R.id.buttonReminder);
+		buttonReminder.setOnClickListener(buttonReminderListener);
+		
+		Button buttonTimer = (Button) findViewById(R.id.buttonTimer);
+		buttonTimer.setOnClickListener(buttonTimerListener);
+		
+		Button buttonStory = (Button) findViewById(R.id.buttonStory);
+		buttonStory.setOnClickListener(buttonStoryListener);
+		
+		Button buttonGame = (Button) findViewById(R.id.buttonGame);
+		buttonGame.setOnClickListener(buttonGameListener);
+		
+		Button buttonLang = (Button) findViewById(R.id.buttonLang);
+		buttonLang.setOnClickListener(buttonLangListener);
+		
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	/********************************************************************
+	 * Button listeners. When the corresponding button is clicked, the 
+	 * action within is performed. All but languages navigate to another
+	 * part of the app.
+	 ********************************************************************/
+	public OnClickListener buttonBiosListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			setContentView(R.layout.bios);
+		}
+	};
+	public OnClickListener buttonReminderListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			setContentView(R.layout.reminder_home);
+		}
+	};
+	public OnClickListener buttonTimerListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			setContentView(R.layout.timer);
+		}
+	};
+	public OnClickListener buttonStoryListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			setContentView(R.layout.story);
+		}
+	};
+	public OnClickListener buttonGameListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			setContentView(R.layout.game);
+		}
+	};
+	public OnClickListener buttonLangListener = new OnClickListener() 
+	{
+		public void onClick(View v)
+		{
+			bIsEng = !bIsEng;
+		}
+	};
+}

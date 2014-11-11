@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BattleForDentalPerfection</string>
+    <string name="action_settings">Battle For Dental Perfection</string>
+    <string name="buttonGameEng">Game</string><string name="buttonGameSpn">Partida</string>
+    <string name="buttonStoryEng">Story</string><string name="buttonStorySpn">Argumento</string>
+    <string name="buttonTimerEng">Timer</string><string name="buttonTimerSpn">Temporizador</string>
+    <string name="buttonReminderEng">Reminder</string><string name="buttonReminderSpn">Aviso</string>
+    <string name="buttonBiosEng">Bios</string><string name="buttonBiosSpn">Biografia</string>
+    <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
+
+</resources>
