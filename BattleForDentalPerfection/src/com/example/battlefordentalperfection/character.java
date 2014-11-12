@@ -41,7 +41,7 @@ public class character extends ActionBarActivity{
 					Log.e(TAG, "Error loading image file names", e);
 				}
 				*/
-		translate(sharedVars.bIsEng);
+		translate(sharedVars.getbIsEng());
 		
 		Button buttonCharReturn = (Button) findViewById(R.id.characterReturn);
 		
@@ -65,7 +65,7 @@ public class character extends ActionBarActivity{
 		if (isEng)
 		{
 			buttonCharReturn.setText(getString(R.string.buttonReturnEng));
-			switch(sharedVars.charChoice){
+			switch(sharedVars.getCharChoice()){
 			case 1:
 				/*
 				String stream = "assets/hero1";
@@ -95,7 +95,7 @@ public class character extends ActionBarActivity{
 		else
 		{
 			buttonCharReturn.setText(getString(R.string.buttonReturnEng));
-			switch(sharedVars.charChoice){
+			switch(sharedVars.getCharChoice()){
 			case 1:
 				charName.setText(getString(R.string.charHero1NameSpn));
 				charBioTitle.setText(getString(R.string.buttonBiosSpn));

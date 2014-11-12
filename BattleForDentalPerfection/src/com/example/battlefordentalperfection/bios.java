@@ -18,7 +18,7 @@ public class bios extends ActionBarActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bios);
 		
-		translate(sharedVars.bIsEng);
+		translate(sharedVars.getbIsEng());
 		
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
 		ImageButton buttonHeroOne = (ImageButton) findViewById(R.id.heroButton1);
@@ -57,7 +57,7 @@ public class bios extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
-			sharedVars.charChoice = 1;
+			sharedVars.setCharChoice(1);
 			Intent viewChar = 
 					new Intent(bios.this, character.class);
 			startActivity(viewChar);
@@ -68,7 +68,7 @@ public class bios extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
-			sharedVars.charChoice = 2;
+			sharedVars.setCharChoice(2);
 			Intent viewChar = 
 					new Intent(bios.this, character.class);
 			startActivity(viewChar);

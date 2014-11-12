@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
 		
-		translate(sharedVars.bIsEng);
+		translate(sharedVars.getbIsEng());
 		
 		//button objects
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
@@ -134,8 +134,8 @@ public class MainActivity extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
-			sharedVars.bIsEng = !sharedVars.bIsEng;
-			translate(sharedVars.bIsEng);
+			sharedVars.flipbIsEng();
+			translate(sharedVars.getbIsEng());
 		}
 	};
 }
