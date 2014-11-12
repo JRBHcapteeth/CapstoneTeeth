@@ -1,6 +1,8 @@
 package com.example.battlefordentalperfection;
 
+
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,21 +10,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity{
 	
 	//toggles language between English and Spanish
-	boolean bIsEng = true; 
+	//boolean bIsEng = true; 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
 		
-		translate(bIsEng);
+		translate(sharedVars.bIsEng);
 		
 		//button objects
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
@@ -40,6 +39,10 @@ public class MainActivity extends ActionBarActivity {
 		buttonGame.setOnClickListener(buttonGameListener);		
 		buttonLang.setOnClickListener(buttonLangListener);
 		
+	}
+
+	/*@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
@@ -55,7 +58,7 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 	
 	public void translate(boolean isEng)
 	{
@@ -94,7 +97,9 @@ public class MainActivity extends ActionBarActivity {
 	{
 		public void onClick(View v)
 		{
-			setContentView(R.layout.bios);
+			Intent startBios = 
+					new Intent(MainActivity.this, bios.class);
+			startActivity(startBios);
 		}
 	};
 	public OnClickListener buttonReminderListener = new OnClickListener() 
@@ -129,8 +134,8 @@ public class MainActivity extends ActionBarActivity {
 	{
 		public void onClick(View v)
 		{
-			bIsEng = !bIsEng;
-			translate(bIsEng);
+			sharedVars.bIsEng = !sharedVars.bIsEng;
+			translate(sharedVars.bIsEng);
 		}
 	};
 }

@@ -6,7 +6,7 @@
     android:stretchColumns="0" >
 
     <TableRow
-        android:id="@+id/tableRow1"
+        android:id="@+id/villainRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" >
@@ -19,7 +19,7 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow2"
+        android:id="@+id/villainRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" >
@@ -33,7 +33,7 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow3"
+        android:id="@+id/villainRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" >
@@ -47,7 +47,7 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow4"
+        android:id="@+id/heroRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" >
@@ -61,7 +61,7 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/tableRow5"
+        android:id="@+id/heroRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp" >

@@ -1,14 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/BiosLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:id="@+id/HeroTable"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bios"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_margin="10dp"
+        android:stretchColumns="0,1,2" >
+
+        <TableRow
+            android:id="@+id/heroRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/heroButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/heroButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/heroButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/heroRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/heroButtonSpace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <ImageButton
+                android:id="@+id/heroButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/VillainTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:stretchColumns="0,1,2" >
+
+        <TableRow
+            android:id="@+id/villainRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/villianButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/villianButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/villianButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/villainRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/villianButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/villianButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/villianButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/villainRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/villianButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+
+            <ImageButton
+                android:id="@+id/villianButton8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/star_big_on" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/ReturnTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:stretchColumns="0" >
+
+        <TableRow
+            android:id="@+id/biosReturnRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/biosReturn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="return to main" />
+
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

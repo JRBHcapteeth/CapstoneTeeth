@@ -7,7 +7,16 @@
     <string name="buttonStoryEng">Story</string><string name="buttonStorySpn">Argumento</string>
     <string name="buttonTimerEng">Timer</string><string name="buttonTimerSpn">Temporizador</string>
     <string name="buttonReminderEng">Reminder</string><string name="buttonReminderSpn">Aviso</string>
-    <string name="buttonBiosEng">Bios</string><string name="buttonBiosSpn">Biografia</string>
+    <string name="buttonBiosEng">Biographies</string><string name="buttonBiosSingEng">Biography</string><string name="buttonBiosSpn">Biografia</string>
+    <string name="buttonRepresentEng">Representation</string><string name="buttonRepresentSpn">Representacion</string>
+    <string name="buttonReturnEng">Main Menu</string><string name="buttonReturnSpn">Menu Principal</string>
     <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
-
+    
+    <string name="charHero1NameEng">Hero</string><string name="charHero1NameSpn">Heroe</string>
+    <string name="charHero1BioEng">He\'s the best</string><string name="charHero1BioSpn">Es el mejor</string>
+    <string name="charHero1RepEng">He\'s a dentist</string><string name="charHero1RepSpn">Es un dentista</string>
+    
+    <string name="charHero2NameEng">Heroine</string><string name="charHero2NameSpn">Heroina</string>
+    <string name="charHero2BioEng">She\'s amazing</string><string name="charHero2BioSpn">Es increible</string>
+    <string name="charHero2RepEng">She\'s a orthodontist</string><string name="charHero2RepSpn">Ella es un orthodoncista</string>
 </resources>
