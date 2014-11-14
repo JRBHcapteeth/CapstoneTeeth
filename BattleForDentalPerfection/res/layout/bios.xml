@@ -21,26 +21,33 @@
                 android:id="@+id/heroButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
             <ImageButton
                 android:id="@+id/heroButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero2" />
 
             <ImageButton
                 android:id="@+id/heroButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
         </TableRow>
 
         <TableRow
             android:id="@+id/heroRow2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp" >
 
             <TextView
                 android:id="@+id/heroButtonSpace"
@@ -53,7 +60,9 @@
                 android:id="@+id/heroButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
         </TableRow>
     </TableLayout>
@@ -71,64 +80,85 @@
             android:layout_height="wrap_content" >
 
             <ImageButton
-                android:id="@+id/villianButton1"
+                android:id="@+id/villainButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vill1" />
 
             <ImageButton
-                android:id="@+id/villianButton2"
+                android:id="@+id/villainButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
             <ImageButton
-                android:id="@+id/villianButton3"
+                android:id="@+id/villainButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
+
         </TableRow>
 
         <TableRow
             android:id="@+id/villainRow2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp" >
 
             <ImageButton
-                android:id="@+id/villianButton4"
+                android:id="@+id/villainButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
             <ImageButton
-                android:id="@+id/villianButton5"
+                android:id="@+id/villainButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
             <ImageButton
-                android:id="@+id/villianButton6"
+                android:id="@+id/villainButton6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
+
         </TableRow>
 
         <TableRow
             android:id="@+id/villainRow3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp" >
 
             <ImageButton
-                android:id="@+id/villianButton7"
+                android:id="@+id/villainButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
 
             <ImageButton
-                android:id="@+id/villianButton8"
+                android:id="@+id/villainButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/star_big_on" />
+                android:background="@color/colClear"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
+
         </TableRow>
     </TableLayout>
 

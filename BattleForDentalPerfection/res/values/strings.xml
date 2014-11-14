@@ -12,11 +12,91 @@
     <string name="buttonReturnEng">Main Menu</string><string name="buttonReturnSpn">Menu Principal</string>
     <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
     
+    <color name="colClear">#00000000</color>
+    
     <string name="charHero1NameEng">Hero</string><string name="charHero1NameSpn">Heroe</string>
     <string name="charHero1BioEng">He\'s the best</string><string name="charHero1BioSpn">Es el mejor</string>
     <string name="charHero1RepEng">He\'s a dentist</string><string name="charHero1RepSpn">Es un dentista</string>
     
     <string name="charHero2NameEng">Heroine</string><string name="charHero2NameSpn">Heroina</string>
-    <string name="charHero2BioEng">She\'s amazing</string><string name="charHero2BioSpn">Es increible</string>
+    <string name="charHero2BioEng">She\'s amazing. So amazing she has a big picture.</string><string name="charHero2BioSpn">Es increible</string>
     <string name="charHero2RepEng">She\'s a orthodontist</string><string name="charHero2RepSpn">Ella es un orthodoncista</string>
+    
+    <string name="charHero3NameEng">Hero3</string><string name="charHero3NameSpn">Heroe3</string>
+    <string name="charHero3BioEng">He\'s the 3</string><string name="charHero3BioSpn">Es el 3</string>
+    <string name="charHero3RepEng">He\'s a 3</string><string name="charHero3RepSpn">Es un 3</string>
+    
+    <string name="charHero4NameEng">Hero4</string><string name="charHero4NameSpn">Heroe4</string>
+    <string name="charHero4BioEng">He\'s the 4</string><string name="charHero4BioSpn">Es el 4</string>
+    <string name="charHero4RepEng">He\'s a 4</string><string name="charHero4RepSpn">Es un 4</string>
+    
+    
+    
+    <string name="charVillain1NameEng">Baddie1</string><string name="charVillain1NameSpn">El Baddo 1</string>
+    <string name="charVillain1BioEng">He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        He\'s the mean 1. He has a lot of text.
+        </string><string name="charVillain1BioSpn">Es el meano 1</string>
+    <string name="charVillain1RepEng">He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        He\'s a bad 1. So bad he makes the screen scroll.
+        </string><string name="charVillain1RepSpn">Es un bado 1</string>
+    
+    <string name="charVillain2NameEng">Baddie2</string><string name="charVillain2NameSpn">El Baddo 2</string>
+    <string name="charVillain2BioEng">He\'s the mean 2</string><string name="charVillain2BioSpn">Es el meano 2</string>
+    <string name="charVillain2RepEng">He\'s a bad 2</string><string name="charVillain2RepSpn">Es un bado 2</string>
+    
+    <string name="charVillain3NameEng">Baddie3</string><string name="charVillain3NameSpn">El Baddo 3</string>
+    <string name="charVillain3BioEng">He\'s the mean 3</string><string name="charVillain3BioSpn">Es el meano 3</string>
+    <string name="charVillain3RepEng">He\'s a bad 3</string><string name="charVillain3RepSpn">Es un bado 3</string>
+    
+    <string name="charVillain4NameEng">Baddie4</string><string name="charVillain4NameSpn">El Baddo 4</string>
+    <string name="charVillain4BioEng">He\'s the mean 4</string><string name="charVillain4BioSpn">Es el meano 4</string>
+    <string name="charVillain4RepEng">He\'s a bad 4</string><string name="charVillain4RepSpn">Es un bado 4</string>
+    
+    <string name="charVillain5NameEng">Baddie5</string><string name="charVillain5NameSpn">El Baddo 5</string>
+    <string name="charVillain5BioEng">He\'s the mean 5</string><string name="charVillain5BioSpn">Es el meano 5</string>
+    <string name="charVillain5RepEng">He\'s a bad 5</string><string name="charVillain5RepSpn">Es un bado 5</string>
+    
+    <string name="charVillain6NameEng">Baddie6</string><string name="charVillain6NameSpn">El Baddo 6</string>
+    <string name="charVillain6BioEng">He\'s the mean 6</string><string name="charVillain6BioSpn">Es el meano 6</string>
+    <string name="charVillain6RepEng">He\'s a bad 6</string><string name="charVillain6RepSpn">Es un bado 6</string>
+    
+    <string name="charVillain7NameEng">Baddie7</string><string name="charVillain7NameSpn">El Baddo 7</string>
+    <string name="charVillain7BioEng">He\'s the mean 7</string><string name="charVillain7BioSpn">Es el meano 7</string>
+    <string name="charVillain7RepEng">He\'s a bad 7</string><string name="charVillain7RepSpn">Es un bado 7</string>
+    
+    <string name="charVillain8NameEng">Baddie8</string><string name="charVillain8NameSpn">El Baddo 8</string>
+    <string name="charVillain8BioEng">He\'s the mean 8</string><string name="charVillain8BioSpn">Es el meano 8</string>
+    <string name="charVillain8RepEng">He\'s a bad 8</string><string name="charVillain8RepSpn">Es un bado 8</string>
 </resources>

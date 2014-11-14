@@ -858,10 +858,11 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f050002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f060003;
+        public static final int abc_search_url_text_holo=0x7f060004;
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060002;
         public static final int abc_search_url_text_selected=0x7f060001;
+        public static final int colClear=0x7f060003;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1077,7 +1078,10 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int hero1=0x7f020057;
+        public static final int hero2=0x7f020058;
+        public static final int ic_launcher=0x7f020059;
+        public static final int vill1=0x7f02005a;
     }
     public static final class id {
         public static final int BiosLayout=0x7f09003c;
@@ -1167,17 +1171,17 @@ containing a value of this type.
         public static final int top_action_bar=0x7f090020;
         public static final int up=0x7f090021;
         public static final int useLogo=0x7f09000e;
+        public static final int villainButton1=0x7f090047;
+        public static final int villainButton2=0x7f090048;
+        public static final int villainButton3=0x7f090049;
+        public static final int villainButton4=0x7f09004b;
+        public static final int villainButton5=0x7f09004c;
+        public static final int villainButton6=0x7f09004d;
+        public static final int villainButton7=0x7f09004f;
+        public static final int villainButton8=0x7f090050;
         public static final int villainRow1=0x7f090046;
         public static final int villainRow2=0x7f09004a;
         public static final int villainRow3=0x7f09004e;
-        public static final int villianButton1=0x7f090047;
-        public static final int villianButton2=0x7f090048;
-        public static final int villianButton3=0x7f090049;
-        public static final int villianButton4=0x7f09004b;
-        public static final int villianButton5=0x7f09004c;
-        public static final int villianButton6=0x7f09004d;
-        public static final int villianButton7=0x7f09004f;
-        public static final int villianButton8=0x7f090050;
         public static final int withText=0x7f090013;
     }
     public static final class integer {
@@ -1315,6 +1319,66 @@ containing a value of this type.
         public static final int charHero2NameSpn=0x7f0a0027;
         public static final int charHero2RepEng=0x7f0a002a;
         public static final int charHero2RepSpn=0x7f0a002b;
+        public static final int charHero3BioEng=0x7f0a002e;
+        public static final int charHero3BioSpn=0x7f0a002f;
+        public static final int charHero3NameEng=0x7f0a002c;
+        public static final int charHero3NameSpn=0x7f0a002d;
+        public static final int charHero3RepEng=0x7f0a0030;
+        public static final int charHero3RepSpn=0x7f0a0031;
+        public static final int charHero4BioEng=0x7f0a0034;
+        public static final int charHero4BioSpn=0x7f0a0035;
+        public static final int charHero4NameEng=0x7f0a0032;
+        public static final int charHero4NameSpn=0x7f0a0033;
+        public static final int charHero4RepEng=0x7f0a0036;
+        public static final int charHero4RepSpn=0x7f0a0037;
+        public static final int charVillain1BioEng=0x7f0a003a;
+        public static final int charVillain1BioSpn=0x7f0a003b;
+        public static final int charVillain1NameEng=0x7f0a0038;
+        public static final int charVillain1NameSpn=0x7f0a0039;
+        public static final int charVillain1RepEng=0x7f0a003c;
+        public static final int charVillain1RepSpn=0x7f0a003d;
+        public static final int charVillain2BioEng=0x7f0a0040;
+        public static final int charVillain2BioSpn=0x7f0a0041;
+        public static final int charVillain2NameEng=0x7f0a003e;
+        public static final int charVillain2NameSpn=0x7f0a003f;
+        public static final int charVillain2RepEng=0x7f0a0042;
+        public static final int charVillain2RepSpn=0x7f0a0043;
+        public static final int charVillain3BioEng=0x7f0a0046;
+        public static final int charVillain3BioSpn=0x7f0a0047;
+        public static final int charVillain3NameEng=0x7f0a0044;
+        public static final int charVillain3NameSpn=0x7f0a0045;
+        public static final int charVillain3RepEng=0x7f0a0048;
+        public static final int charVillain3RepSpn=0x7f0a0049;
+        public static final int charVillain4BioEng=0x7f0a004c;
+        public static final int charVillain4BioSpn=0x7f0a004d;
+        public static final int charVillain4NameEng=0x7f0a004a;
+        public static final int charVillain4NameSpn=0x7f0a004b;
+        public static final int charVillain4RepEng=0x7f0a004e;
+        public static final int charVillain4RepSpn=0x7f0a004f;
+        public static final int charVillain5BioEng=0x7f0a0052;
+        public static final int charVillain5BioSpn=0x7f0a0053;
+        public static final int charVillain5NameEng=0x7f0a0050;
+        public static final int charVillain5NameSpn=0x7f0a0051;
+        public static final int charVillain5RepEng=0x7f0a0054;
+        public static final int charVillain5RepSpn=0x7f0a0055;
+        public static final int charVillain6BioEng=0x7f0a0058;
+        public static final int charVillain6BioSpn=0x7f0a0059;
+        public static final int charVillain6NameEng=0x7f0a0056;
+        public static final int charVillain6NameSpn=0x7f0a0057;
+        public static final int charVillain6RepEng=0x7f0a005a;
+        public static final int charVillain6RepSpn=0x7f0a005b;
+        public static final int charVillain7BioEng=0x7f0a005e;
+        public static final int charVillain7BioSpn=0x7f0a005f;
+        public static final int charVillain7NameEng=0x7f0a005c;
+        public static final int charVillain7NameSpn=0x7f0a005d;
+        public static final int charVillain7RepEng=0x7f0a0060;
+        public static final int charVillain7RepSpn=0x7f0a0061;
+        public static final int charVillain8BioEng=0x7f0a0064;
+        public static final int charVillain8BioSpn=0x7f0a0065;
+        public static final int charVillain8NameEng=0x7f0a0062;
+        public static final int charVillain8NameSpn=0x7f0a0063;
+        public static final int charVillain8RepEng=0x7f0a0066;
+        public static final int charVillain8RepSpn=0x7f0a0067;
     }
     public static final class style {
         /** 
@@ -2693,7 +2757,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x01010435
+            0x0101012f, 0x01010130, 0x01010131, 0x01010438
         };
         /**
           <p>

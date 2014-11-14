@@ -11,20 +11,18 @@ public class sharedVars {
 		return bIsEng;
 	}
 	
-	static boolean flipbIsEng()
+	static void flipbIsEng()
 	{
 		bIsEng = !bIsEng;
-		return bIsEng;
 	}
 	static int getCharChoice()
 	{
 		return charChoice;
 	}
 	
-	static int setCharChoice(int x)
+	static void setCharChoice(int x)
 	{
 		charChoice = x;
-		return charChoice;
 	}
 	
 }
