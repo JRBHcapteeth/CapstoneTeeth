@@ -2,32 +2,36 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
-    android:stretchColumns="0" >
+    android:layout_margin="0dp"
+    android:background="@drawable/bg"
+    android:stretchColumns="0,1,2" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo" />
 
     <TableRow
         android:id="@+id/villainRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="4dp" >
 
         <Button
             android:id="@+id/buttonBios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="bios" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/villainRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
 
         <Button
             android:id="@+id/buttonReminder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="remind" />
 
     </TableRow>
@@ -36,26 +40,22 @@
         android:id="@+id/villainRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="4dp" >
 
         <Button
             android:id="@+id/buttonTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="time" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/heroRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
 
         <Button
             android:id="@+id/buttonStory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="story" />
 
     </TableRow>
@@ -64,26 +64,22 @@
         android:id="@+id/heroRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="4dp" >
 
         <Button
             android:id="@+id/buttonGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="game" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
 
         <Button
             android:id="@+id/buttonLang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@color/colGrey"
             android:text="Language" />
 
     </TableRow>

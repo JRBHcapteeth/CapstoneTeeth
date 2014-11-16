@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BattleForDentalPerfection</string>
+    <string name="app_name">Battle for Dental Perfection</string>
     <string name="action_settings">Battle For Dental Perfection</string>
     <string name="buttonGameEng">Game</string><string name="buttonGameSpn">Partida</string>
     <string name="buttonStoryEng">Story</string><string name="buttonStorySpn">Argumento</string>
@@ -11,8 +11,19 @@
     <string name="buttonRepresentEng">Representation</string><string name="buttonRepresentSpn">Representacion</string>
     <string name="buttonReturnEng">Main Menu</string><string name="buttonReturnSpn">Menu Principal</string>
     <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
+    <string name="buttonCharLockedEng">Character locked</string><string name="buttonCharLockedSpn">Charactero locked-o</string>
+    <string name="buttonCharBuyMsgOneEng">Spend 10 of your</string><string name="buttonCharBuyMsgOneSpn">Spendo 10o of youro</string>
+    <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">creditso to unlocko this charactero?</string>
+    <string name="buttonCharBuyConfirmEng">Unlock</string><string name="buttonCharBuyConfirmSpn">Unlocko</string>
+    <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Insufficiento creditos</string>
+    <string name="textHighScoreEng">High Score:</string><string name="textHighScoreSpn">Higho scoreo:</string>
+    <string name="buttonDifficultyEasyEng">Easy</string><string name="buttonDifficultyEasySpn">Easyo</string>
+    <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Mediumo</string>
+    <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Hardo</string>
+    <string name="buttonStartGameEng">Start Game!</string><string name="buttonStartGameSpn">Starto Gameo!</string>
     
     <color name="colClear">#00000000</color>
+    <color name="colGrey">#ddaaaaaa</color>
     
     <string name="charHero1NameEng">Hero</string><string name="charHero1NameSpn">Heroe</string>
     <string name="charHero1BioEng">He\'s the best</string><string name="charHero1BioSpn">Es el mejor</string>

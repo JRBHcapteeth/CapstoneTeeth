@@ -3,6 +3,7 @@
     android:id="@+id/BiosLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colGrey"
     android:orientation="vertical" >
 
     <TableLayout
@@ -22,6 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -30,6 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero2" />
 
@@ -38,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -61,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -72,7 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:stretchColumns="0,1,2" >
+        android:paddingTop="10dp"
+        android:stretchColumns="0,1,2,3,4" >
 
         <TableRow
             android:id="@+id/villainRow1"
@@ -84,6 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/vill1" />
 
@@ -92,14 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
-                android:scaleType="centerCrop"
-                android:src="@drawable/hero1" />
-
-            <ImageButton
-                android:id="@+id/villainButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -116,6 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -124,14 +125,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
             <ImageButton
-                android:id="@+id/villainButton6"
+                android:id="@+id/villainButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
@@ -148,25 +151,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
+
+            <ImageButton
+                android:id="@+id/villainButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colClear"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hero1" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/villainRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp" >
 
             <ImageButton
                 android:id="@+id/villainButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
+                android:padding="2dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/hero1" />
 
         </TableRow>
+
     </TableLayout>
 
     <TableLayout
         android:id="@+id/ReturnTable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="10dp"
         android:stretchColumns="0" >
 
         <TableRow

@@ -1,6 +1,10 @@
 package com.example.battlefordentalperfection;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -16,9 +20,9 @@ public class bios extends ActionBarActivity{
 		//opens the content view
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bios);
-		
+
 		//translates text
-		translate(sharedVars.getbIsEng());
+		translate();
 		
 		//creates button to return to main menu and sets ID
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
@@ -71,11 +75,11 @@ public class bios extends ActionBarActivity{
 	}
 	
 	//if bIsEng is true, text is English. Otherwise, it's Spanish
-	public void translate(boolean isEng)
+	public void translate()
 	{
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
 		
-		if (isEng)
+		if (sharedVars.getbIsEng())
 			buttonBiosReturn.setText(getString(R.string.buttonReturnEng));
 		else
 			buttonBiosReturn.setText(getString(R.string.buttonReturnSpn));	
@@ -94,72 +98,139 @@ public class bios extends ActionBarActivity{
 	//Operation that follows is based off the ID.
 	private void processClick(ImageButton iBut)
 	{	
-		Intent viewChar;
 		int buttonId = iBut.getId();
 		switch(buttonId){
 		case 1://displays hero 1
-			sharedVars.setCharChoice(1);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(1);
 			break;
 		case 2://displays hero 2
-			sharedVars.setCharChoice(2);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(2);
 			break;
 		case 3://displays hero 3
-			sharedVars.setCharChoice(3);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(3);
 			break;
 		case 4://displays hero 4
-			sharedVars.setCharChoice(4);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(4);
 			break;
 		case 5://displays villain 1
-			sharedVars.setCharChoice(5);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(5);
 			break;
 		case 6://displays villain 2
-			sharedVars.setCharChoice(6);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(6);
 			break;
 		case 7://displays villain 3
-			sharedVars.setCharChoice(7);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(7);
 			break;
 		case 8://displays villain 4
-			sharedVars.setCharChoice(8);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(8);
 			break;
 		case 9://displays villain 5
-			sharedVars.setCharChoice(9);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(9);
 			break;
 		case 10://displays villain 6
-			sharedVars.setCharChoice(10);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(10);
 			break;
 		case 11://displays villain 7
-			sharedVars.setCharChoice(11);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(11);
 			break;
 		case 12://displays villain 8
-			sharedVars.setCharChoice(12);
-			viewChar = new Intent(bios.this, character.class);
-			startActivity(viewChar);
+			goToCharacter(12);
 			break;
 		}
 	}
+	
+	public void goToCharacter(int num)
+	{
+		isCharUnlocked(num);
+		
+		if(sharedVars.getIfCharUnlocked(num))
+		{
+			Intent viewChar;
+		
+			sharedVars.setCharChoice(num);
+			viewChar = new Intent(bios.this, character.class);
+			startActivity(viewChar);
+		}
+	}
 
+	private void isCharUnlocked(final int num)
+	{
+		if(sharedVars.getIfCharUnlocked(num))//if chars already unlocked, end here
+			return;
+		else{//if char isnt unlocked
+			if(sharedVars.getCredits() >= 10)//if the user has enough credits to use
+			{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				if(sharedVars.getbIsEng())
+				{
+					builder.setTitle(R.string.buttonCharLockedEng); 
+					String message = getString(R.string.buttonCharBuyMsgOneEng)+" "+
+							String.valueOf(sharedVars.getCredits())+" "+
+							getString(R.string.buttonCharBuyMsgTwoEng);
+					builder.setMessage(message);
+				}
+				else
+				{
+					builder.setTitle(R.string.buttonCharLockedSpn); 
+					String message = getString(R.string.buttonCharBuyMsgOneSpn)+" "+
+							String.valueOf(sharedVars.getCredits())+" "+
+							getString(R.string.buttonCharBuyMsgTwoSpn);
+					builder.setMessage(message);			
+				}
+				builder.setCancelable(true); 
+		
+				if(sharedVars.getbIsEng())
+					builder.setPositiveButton(R.string.buttonCharBuyConfirmEng,
+							new DialogInterface.OnClickListener()
+							{ 
+								public void onClick(DialogInterface dialog, int id) 
+								{
+									unlockCharacter(num);
+								}
+							}
+							);
+				else
+					builder.setPositiveButton(R.string.buttonCharBuyConfirmSpn,
+							new DialogInterface.OnClickListener()
+							{     
+								public void onClick(DialogInterface dialog, int id) 
+								{
+									unlockCharacter(num);    
+								}
+							}
+							);
+		
+				AlertDialog unlockedCheck = builder.create();
+				unlockedCheck.show();
+			}// end of if(sharedVars.getCredits() >= 10)
+			else//user does not have enough credits to make a purchase
+				{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				if(sharedVars.getbIsEng())
+				{
+					builder.setTitle(R.string.buttonCharLockedEng); 
+					builder.setMessage(R.string.buttonCharNoCredEng);
+				}
+				else
+				{
+					builder.setTitle(R.string.buttonCharLockedSpn); 
+					builder.setMessage(R.string.buttonCharNoCredSpn);			
+				}
+				builder.setCancelable(true); 
+		
+				AlertDialog lockedCheck = builder.create();
+				lockedCheck.show();
+				}//end of inside else
+			}//end of outside else
+	}
+	
+	public void unlockCharacter(int num)
+	{
+		SharedPreferences saveFile = this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
+		sharedVars.setCredits(-10, saveFile);
+		sharedVars.unlockChar(num, saveFile);
+	}
+	
 	public OnClickListener buttonBiosReturnListener = new OnClickListener() 
 	{
 		public void onClick(View v)

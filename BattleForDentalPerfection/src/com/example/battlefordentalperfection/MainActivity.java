@@ -2,7 +2,9 @@ package com.example.battlefordentalperfection;
 
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,8 +20,10 @@ public class MainActivity extends ActionBarActivity{
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
-		
-		translate(sharedVars.getbIsEng());
+
+		SharedPreferences saveFile = this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
+		sharedVars.loadbIsEng(saveFile);
+		translate();
 		
 		//button objects
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
@@ -36,6 +40,11 @@ public class MainActivity extends ActionBarActivity{
 		buttonStory.setOnClickListener(buttonStoryListener);		
 		buttonGame.setOnClickListener(buttonGameListener);		
 		buttonLang.setOnClickListener(buttonLangListener);
+		
+		sharedVars.loadCredits(saveFile);
+		sharedVars.loadUnlocked(saveFile);
+		sharedVars.loadHighScore(saveFile);
+		sharedVars.loadDifficulty(saveFile);
 		
 	}
 
@@ -58,7 +67,7 @@ public class MainActivity extends ActionBarActivity{
 		return super.onOptionsItemSelected(item);
 	}*/
 	
-	public void translate(boolean isEng)
+	public void translate()
 	{
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
 		Button buttonReminder = (Button) findViewById(R.id.buttonReminder);
@@ -67,7 +76,7 @@ public class MainActivity extends ActionBarActivity{
 		Button buttonGame = (Button) findViewById(R.id.buttonGame);
 		Button buttonLang = (Button) findViewById(R.id.buttonLang);
 		
-		if (isEng)
+		if (sharedVars.getbIsEng())
 		{
 			buttonBios.setText(getString(R.string.buttonBiosEng));
 			buttonTimer.setText(getString(R.string.buttonTimerEng));
@@ -104,36 +113,51 @@ public class MainActivity extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
-			setContentView(R.layout.reminder_home);
+			Intent startReminder = 
+					new Intent(MainActivity.this, reminder.class);
+			startActivity(startReminder);
 		}
 	};
 	public OnClickListener buttonTimerListener = new OnClickListener() 
 	{
 		public void onClick(View v)
 		{
-			setContentView(R.layout.timer);
+			Intent startTimer = 
+					new Intent(MainActivity.this, timer.class);
+			startActivity(startTimer);
 		}
 	};
 	public OnClickListener buttonStoryListener = new OnClickListener() 
 	{
 		public void onClick(View v)
 		{
-			setContentView(R.layout.story);
+			Intent startStory = 
+					new Intent(MainActivity.this, story.class);
+			startActivity(startStory);
 		}
 	};
 	public OnClickListener buttonGameListener = new OnClickListener() 
 	{
 		public void onClick(View v)
 		{
-			setContentView(R.layout.game);
+			Intent startGame = 
+					new Intent(MainActivity.this, gameSplash.class);
+			startActivity(startGame);
 		}
 	};
 	public OnClickListener buttonLangListener = new OnClickListener() 
 	{
 		public void onClick(View v)
 		{
-			sharedVars.flipbIsEng();
-			translate(sharedVars.getbIsEng());
+			//sharedVars.flipbIsEng();
+			booleansAreMean();
+			translate();
 		}
+	};
+	
+	public void booleansAreMean()
+	{
+		SharedPreferences saveFile = this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
+		sharedVars.flipbIsEng(saveFile);
 	};
 }
