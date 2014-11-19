@@ -8,9 +8,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class gameSplash extends ActionBarActivity{
+	
+	private game gameView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -107,7 +110,7 @@ public class gameSplash extends ActionBarActivity{
 		public void onClick(View v)
 		{
 			Intent startGame = 
-					new Intent(gameSplash.this, game.class);
+					new Intent(gameSplash.this, gameBase.class);
 			startActivity(startGame);
 		}
 	};
@@ -120,5 +123,6 @@ public class gameSplash extends ActionBarActivity{
 					new Intent(gameSplash.this, MainActivity.class);
 			startActivity(startGame);
 		}
-	};
+	};  
+	   
 }
