@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -23,10 +26,10 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private int hp; //amount of hits player can take
 	private int overdose; //progress of overdose meter
 	private boolean gameover = true; //true if game done, false if running
-	private double timePassed; //time elapsed since last graphic update
 	private int playerMathXVal; //current position along the curve y = -x^2 from -2 to 2.
-	private double delta;
-	private boolean isFalling = false;
+	private double delta;//variable upwards vector
+	private double gravity = 10; //constant downwards vector
+	private boolean playerHasTapped = false;
 	
 	private int screenWidth;
 	private int screenHeight;
@@ -48,7 +51,6 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		score = 0;
 		overdose = 0;
 		gameover = false;
-		timePassed = 0.0;
 		
 		switch(sharedVars.getDifficulty()){
 		case 0: hp = 3; break;
@@ -85,7 +87,6 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	      screenHeight = h;
 
 	      playerMathXVal = screenWidth/2;
-	      delta = -(screenWidth/100);
 	      friendObjArr.get(0).setPosX(screenWidth / 2);
 	      friendObjArr.get(0).setPosY(screenHeight / 4);
 	      
@@ -114,28 +115,26 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	public void resetPlayerMath(MotionEvent event)
 	{
 		//playerMathXVal = friendObjArr.get(0).getPosX();
-		isFalling = false;
-	    playerMathXVal = screenWidth/2;
-		delta = -(screenWidth/100);
-		friendObjArr.get(0).setPosX(screenWidth / 2);
-		friendObjArr.get(0).setPosY(screenHeight / 4);
+		delta = 20;
+		friendObjArr.get(0).setPosX(playerMathXVal);
+		playerHasTapped = true;
+		
+		
 	}
 	
-    public void updateScreen(double timePassedMS)
+    public void updateScreen()
     {
-    	//int interval = (int) timePassedMS / 1000; //milisec to sec.
+    	if(!gameover)
+    	{
+    		if(playerMathXVal >= 0 && playerMathXVal <= screenWidth)
+    		{
+    			playerMathXVal += (delta+gravity);
+    			delta -= 2;
+    		}
+    		else
+    			gameover = !gameover;
+    	}
     	
-    	
-    	//playerMathXVal = (int) Math.pow(-(playerMathXVal + interval), 2);
-
-		playerMathXVal += delta;
-		if(delta > -5)
-			isFalling = true;
-		if(!isFalling)
-			delta *= 1.01;
-		else
-			delta /= 1.01;
-		
 		friendObjArr.get(0).setPosX(playerMathXVal);
     }
     
@@ -166,17 +165,15 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) 
 	{
-		if (true)
-		{
-			playerMathXVal = screenWidth/2;
-			delta = -(screenWidth/10);
-			friendObjArr.get(0).setPosX(screenWidth / 2);
-			friendObjArr.get(0).setPosY(screenHeight / 4);
+		
+		playerMathXVal = screenWidth/2;
+		friendObjArr.get(0).setPosX(playerMathXVal);
+		friendObjArr.get(0).setPosY(screenHeight / 4);
 			
-			gameThread = new GameThread(holder);
-			gameThread.setRunning(true);
-			gameThread.start(); // start the game loop thread
-		} // end if
+		gameThread = new GameThread(holder);
+		gameThread.setRunning(true);
+		gameThread.start(); // start the game loop thread
+		
 	}
 
 	@Override
@@ -200,6 +197,18 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 			} // end catch
 		} // end while   
 	}
+	
+	private void drawGameStart(Canvas canvas)
+	{
+		Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.startgamebg);
+        canvas.drawBitmap(bmp, null, new Rect(0,0,screenWidth, screenHeight), null);
+	}
+	
+	private void gameOverDialog()
+	{
+		
+	}
+	
 	private class GameThread extends Thread
 	{
 		private SurfaceHolder surfaceHolder; // for manipulating canvas
@@ -223,7 +232,6 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	    public void run()
 	    {
 	    	Canvas canvas = null; // used for drawing
-	        long previousFrameTime = System.currentTimeMillis(); 
 	        
 	        while (threadIsRunning)
 	        {
@@ -233,12 +241,13 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	        		// lock the surfaceHolder for drawing
 	        		synchronized(surfaceHolder)
 	        		{
-	        			long currentTime = System.currentTimeMillis();
-	                    double elapsedTimeMS = currentTime - previousFrameTime;
-	                    timePassed += elapsedTimeMS / 1000.00; 
-	                    updateScreen(elapsedTimeMS); // update game state
-	                    drawEntities(canvas); // draw 
-	                    previousFrameTime = currentTime; // update previous time
+	        			if(playerHasTapped)
+	        			{
+	        				updateScreen(); // update game state
+	        				drawEntities(canvas); // draw 
+	        			}
+	        			else
+	        				drawGameStart(canvas);
 	                } // end synchronized block
 	            } // end try
 	        	finally

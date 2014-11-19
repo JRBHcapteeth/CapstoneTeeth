@@ -244,14 +244,16 @@ int drawable ic_launcher 0x7f02005b
 int drawable icon 0x7f02005c
 int drawable logo 0x7f02005d
 int drawable logogame 0x7f02005e
-int drawable vill1 0x7f02005f
-int drawable vill2 0x7f020060
-int drawable vill3 0x7f020061
-int drawable vill4 0x7f020062
-int drawable vill5 0x7f020063
-int drawable vill6 0x7f020064
-int drawable vill7 0x7f020065
-int drawable vill8 0x7f020066
+int drawable startgamebg 0x7f02005f
+int drawable testbg 0x7f020060
+int drawable vill1 0x7f020061
+int drawable vill2 0x7f020062
+int drawable vill3 0x7f020063
+int drawable vill4 0x7f020064
+int drawable vill5 0x7f020065
+int drawable vill6 0x7f020066
+int drawable vill7 0x7f020067
+int drawable vill8 0x7f020068
 int id BiosLayout 0x7f09003c
 int id HeroTable 0x7f09003d
 int id ReturnTable 0x7f090052
@@ -740,7 +742,7 @@ int styleable MenuItem_android_title 7
 int styleable MenuItem_android_titleCondensed 8
 int styleable MenuItem_android_visible 4
 int styleable MenuItem_showAsAction 13
-int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x01010438 }
+int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x01010435 }
 int styleable MenuView_android_headerBackground 4
 int styleable MenuView_android_horizontalDivider 2
 int styleable MenuView_android_itemBackground 5
