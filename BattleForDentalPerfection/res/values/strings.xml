@@ -110,4 +110,8 @@
     <string name="charVillain8NameEng">Baddie8</string><string name="charVillain8NameSpn">El Baddo 8</string>
     <string name="charVillain8BioEng">He\'s the mean 8</string><string name="charVillain8BioSpn">Es el meano 8</string>
     <string name="charVillain8RepEng">He\'s a bad 8</string><string name="charVillain8RepSpn">Es un bado 8</string>
+    <string name="timerVal">00:00:00</string>
+    <string name="pauseButtonLabel">Pause</string>
+    <string name="startButtonLabel">Start</string>
+    
 </resources>
