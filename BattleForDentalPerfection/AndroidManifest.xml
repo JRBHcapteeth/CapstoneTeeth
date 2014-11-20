@@ -22,9 +22,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
-        <receiver android:name=".MyAlarmReceiver" />
      	<activity android:name=".bios" 
          	android:label="@string/app_name"></activity>
      	<activity android:name=".character" 
@@ -38,10 +36,6 @@
      	<activity android:name=".game" 
 			android:screenOrientation="landscape"
          	android:label="@string/app_name"></activity>
-     	<activity android:name=".reminder" 
-          android:label="@string/app_name"></activity>
-     	<activity android:name=".timer" android:label="@string/app_name"></activity>
-     	
     </application>
 
 </manifest>
