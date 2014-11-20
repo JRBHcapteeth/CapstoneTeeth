@@ -3,12 +3,16 @@ package com.example.battlefordentalperfection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
 =======
 >>>>>>> origin/master
+=======
+import android.app.Activity;
+>>>>>>> parent of f0fb393... update to timer and reminder
 =======
 import android.app.Activity;
 >>>>>>> parent of f0fb393... update to timer and reminder
@@ -33,6 +37,7 @@ import android.widget.Toast;
 public class reminder extends Activity {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private TimePicker tpFirst = null; 
     private TimePicker tpSecond = null;
     private AlarmManager alarmMgr;
@@ -46,6 +51,9 @@ public class reminder extends Activity {
 public class reminder extends ActionBarActivity {
 
 >>>>>>> origin/master
+=======
+
+>>>>>>> parent of f0fb393... update to timer and reminder
 =======
 
 >>>>>>> parent of f0fb393... update to timer and reminder
@@ -69,11 +77,16 @@ public class reminder extends ActionBarActivity {
         
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
        
        	//TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
         //TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
 >>>>>>> origin/master
+=======
+        final   TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
+        final   TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
+>>>>>>> parent of f0fb393... update to timer and reminder
 =======
         final   TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
         final   TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
@@ -88,6 +101,7 @@ public class reminder extends ActionBarActivity {
     		public void onClick(View v)
 <<<<<<< HEAD
     		{
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     			
@@ -122,6 +136,13 @@ public class reminder extends ActionBarActivity {
                 finish();*/
 >>>>>>> origin/master
 =======
+                finish();
+>>>>>>> parent of f0fb393... update to timer and reminder
+=======
+    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
+
+                Toast.makeText(reminder.this, "User has selected " + strDateTime, Toast.LENGTH_LONG).show();
+
                 finish();
 >>>>>>> parent of f0fb393... update to timer and reminder
 =======
