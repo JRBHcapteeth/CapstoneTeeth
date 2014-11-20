@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
+			android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,9 +29,14 @@
          	android:label="@string/app_name"></activity>
      	<activity android:name=".character" 
          	android:label="@string/app_name"></activity>
+     	<activity android:name=".gameBase" 
+         	android:label="@string/app_name"></activity>
+     	<activity android:name=".reminder" 
+         	android:label="@string/app_name"></activity>
      	<activity android:name=".gameSplash" 
          	android:label="@string/app_name"></activity>
      	<activity android:name=".game" 
+			android:screenOrientation="landscape"
          	android:label="@string/app_name"></activity>
      	<activity android:name=".reminder" 
           android:label="@string/app_name"></activity>

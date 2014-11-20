@@ -1,15 +1,19 @@
 package com.example.battlefordentalperfection;
 
+<<<<<<< HEAD
 import java.util.Calendar;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+=======
+>>>>>>> origin/master
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,6 +22,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 public class reminder extends Activity {
     private TimePicker tpFirst = null; 
     private TimePicker tpSecond = null;
@@ -28,6 +33,10 @@ public class reminder extends Activity {
     
     
     @Override 
+=======
+public class reminder extends ActionBarActivity {
+
+>>>>>>> origin/master
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -51,11 +60,18 @@ public class reminder extends Activity {
     }
        
 
+<<<<<<< HEAD
         
+=======
+       
+       	//TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
+        //TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
+>>>>>>> origin/master
 
         public OnClickListener buttonSetListener = new OnClickListener() 
     	{
     		public void onClick(View v)
+<<<<<<< HEAD
     		{
     			
     			
@@ -68,6 +84,10 @@ public class reminder extends Activity {
     			
     			
                // Toast.makeText(reminder.this, "User has selected " + hour + " " + minute, Toast.LENGTH_LONG).show();
+=======
+    		{/*
+    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
+>>>>>>> origin/master
 
              // Set the alarm to start at the users choice
                 Calendar calendar = Calendar.getInstance();
@@ -76,13 +96,17 @@ public class reminder extends Activity {
                 calendar.set(Calendar.MINUTE, minute);
                 timeMilli = calendar.getTimeInMillis();
 
+<<<<<<< HEAD
                 // With setInexactRepeating(), you have to use one of the AlarmManager interval
                 // constants--in this case, AlarmManager.INTERVAL_DAY.
                 alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, timeMilli,
                 		                     AlarmManager.INTERVAL_DAY, alarmIntent);
                 
+=======
+                finish();*/
+>>>>>>> origin/master
     		}
-    	};
+    	}; 
     	public OnClickListener buttonBackListener = new OnClickListener() 
     	{
     		public void onClick(View v)
