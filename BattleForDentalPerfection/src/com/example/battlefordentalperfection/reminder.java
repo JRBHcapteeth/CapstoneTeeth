@@ -1,20 +1,9 @@
 package com.example.battlefordentalperfection;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import java.util.Calendar;
 
+import java.util.Calendar;
 import android.app.Activity;
 import android.app.AlarmManager;
-=======
->>>>>>> origin/master
-=======
-import android.app.Activity;
->>>>>>> parent of f0fb393... update to timer and reminder
-=======
-import android.app.Activity;
->>>>>>> parent of f0fb393... update to timer and reminder
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,10 +18,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-<<<<<<< HEAD
+
 public class reminder extends Activity {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     private TimePicker tpFirst = null; 
     private TimePicker tpSecond = null;
     private AlarmManager alarmMgr;
@@ -42,17 +30,7 @@ public class reminder extends Activity {
     
     
     @Override 
-=======
-public class reminder extends ActionBarActivity {
-
->>>>>>> origin/master
-=======
-
->>>>>>> parent of f0fb393... update to timer and reminder
-=======
-
->>>>>>> parent of f0fb393... update to timer and reminder
-    public void onCreate(Bundle savedInstanceState) {
+public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.reminder_home);
@@ -60,36 +38,24 @@ public class reminder extends ActionBarActivity {
 
         Button btnNext = (Button) findViewById(R.id.btnBack);
         Button btnSet = (Button) findViewById(R.id.btnSubmit);
+        alarmMgr = (AlarmManager)getSystemService(ALARM_SERVICE);
+        Intent intent = new Intent(this, myAlarmReceiver.class);
+        alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         btnNext.setOnClickListener(buttonBackListener);
         btnSet.setOnClickListener(buttonSetListener);
         
         }
 
-<<<<<<< HEAD
-        
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-       
-       	//TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
-        //TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
->>>>>>> origin/master
-=======
-        final   TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
-        final   TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
->>>>>>> parent of f0fb393... update to timer and reminder
-=======
-        final   TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
-        final   TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
->>>>>>> parent of f0fb393... update to timer and reminder
+
 
         public OnClickListener buttonSetListener = new OnClickListener() 
     	{
     		public void onClick(View v)
-<<<<<<< HEAD
     		{
-<<<<<<< HEAD
-<<<<<<< HEAD
+    			Calendar calendar = Calendar.getInstance();
+    			//calendar.setTimeInMillis(System.currentTimeMillis());
+    			
+
     			
     			
     			tpFirst = (TimePicker) findViewById(R.id.tpFirst);
@@ -98,40 +64,16 @@ public class reminder extends ActionBarActivity {
     			long timeMilli;
     			minute = tpFirst.getCurrentMinute();
     			hour = tpFirst.getCurrentHour();
+    			calendar.set(Calendar.HOUR_OF_DAY, hour);
+    			calendar.set(Calendar.MINUTE, minute);
     			
-    			
-               // Toast.makeText(reminder.this, "User has selected " + hour + " " + minute, Toast.LENGTH_LONG).show();
-=======
-    		{/*
-    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
->>>>>>> origin/master
-=======
-    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
->>>>>>> parent of f0fb393... update to timer and reminder
-
-                Toast.makeText(reminder.this, "User has selected " + strDateTime, Toast.LENGTH_LONG).show();
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-                // With setInexactRepeating(), you have to use one of the AlarmManager interval
-                // constants--in this case, AlarmManager.INTERVAL_DAY.
-                alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, timeMilli,
-                		                     AlarmManager.INTERVAL_DAY, alarmIntent);
-                
-=======
-                finish();*/
->>>>>>> origin/master
-=======
-                finish();
->>>>>>> parent of f0fb393... update to timer and reminder
-=======
-    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
-
-                Toast.makeText(reminder.this, "User has selected " + strDateTime, Toast.LENGTH_LONG).show();
-
-                finish();
->>>>>>> parent of f0fb393... update to timer and reminder
+    			// With setInexactRepeating(), you have to use one of the AlarmManager interval
+    			// constants--in this case, AlarmManager.INTERVAL_DAY.
+    			alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+    			        AlarmManager.INTERVAL_DAY, alarmIntent);
     		}
+    			
+            
     	}; 
     	public OnClickListener buttonBackListener = new OnClickListener() 
     	{
