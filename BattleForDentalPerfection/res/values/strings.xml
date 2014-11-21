@@ -21,6 +21,9 @@
     <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Mediumo</string>
     <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Hardo</string>
     <string name="buttonStartGameEng">Start Game!</string><string name="buttonStartGameSpn">Starto Gameo!</string>
+    <string name="gameOverTitleEng">Game Over</string><string name="gameOverTitleSpn">Game Overo</string>
+    <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Scoreo:</string>
+    <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OKo</string>
     
     <color name="colClear">#00000000</color>
     <color name="colGrey">#ddaaaaaa</color>

@@ -2,80 +2,81 @@ package com.example.battlefordentalperfection;
 
 public class hostileObj {
 	
-	private static int posXMin, posXMax, posYMinTop, posYMaxTop, posYMinBot, posYMaxBot;
-	private static String pathname;
-	private boolean isActive;
+	private int posYMin, posYMax, posXMinTop, posXMaxTop, posXMinBot, posXMaxBot, imgref;
+	private boolean isActive, isNear, hasGivenPoint;
 	
-	hostileObj(int pxM, int pxm, int pymT, int pyMT, int pymB, int pyMB, String str, boolean isUp)
+	hostileObj(int pym, int pyM, int pxmT, int pxMT, int pxmB, int pxMB, int pth, boolean isUp, boolean ibp, boolean hgp)
 	{
-		posXMin = pxM;
-		posXMax = pxm;
-		posYMinTop = pymT;
-		posYMaxTop = pyMT;
-		posYMinBot = pymB;
-		posYMaxBot = pyMB;
-		pathname = str;
+		posYMin = pym;
+		posYMax = pyM;
+		posXMinTop = pxmT;
+		posXMaxTop = pxMT;
+		posXMinBot = pxmB;
+		posXMaxBot = pxMB;
+		imgref = pth;
 		isActive = isUp;
+		isNear = ibp;
+		hasGivenPoint = hgp;
 	}
 	
-	public int getPosXMin()
+	public int getPosYMin()
 	{
-		return posXMin;
+		return posYMin;
 	}
 	
-	public void setPosXMin(int num)
+	public void setPosYMin(int num)
 	{
-		posXMin = num;
+		posYMin = num;
 	}
 	
-	public int getPosXMax()
+	public int getPosYMax()
 	{
-		return posXMax;
+		return posYMax;
 	}
 	
-	public void setPosXMax(int num)
+	public void setPosYMax(int num)
 	{
-		posXMax = num;
+		posYMax = num;
 	}
 
-	public int getPosYMinTop()
+	public int getPosXMinTop()
 	{
-		return posYMinTop;
+		return posXMinTop;
 	}
 	
-	public void setPosYMinTop(int num)
+	public void setPosXMinTop(int num)
 	{
-		posYMinTop = num;
+		posXMinTop = num;
 	}
 	
-	public int getPosYMaxTop()
+	public int getPosXMaxTop()
 	{
-		return posYMaxTop;
+		return posXMaxTop;
 	}
 	
-	public void setPosYMaxTop(int num)
+	public void setPosXMaxTop(int num)
 	{
-		posYMaxTop = num;
+		posXMaxTop = num;
 	}
 	
-	public int getPosYMinBot()
+	public int getPosXMinBot()
 	{
-		return posYMinBot;
+		return posXMinBot;
 	}
 	
-	public void setPosYMinBot(int num)
+	public void setPosXMinBot(int num)
 	{
-		posYMinBot = num;
+		posXMinBot = num;
 	}
 	
-	public int getPosYMaxBot()
+	public int getPosXMaxBot()
 	{
-		return posYMaxBot;
+		return posXMaxBot;
 	}
 	
-	public void setPosYMaxBot(int num)
+	public void setPosXMaxBot(int num)
 	{
-		posYMaxBot = num;
+		posXMaxBot = num;
 	}
 	
 	public boolean getIsActive()
@@ -88,14 +89,34 @@ public class hostileObj {
 		isActive = bool;
 	}
 	
-	public String getPathname()
+	public boolean getIsNear()
 	{
-		return pathname;
+		return isNear;
 	}
 	
-	public void setPathname(String string)
+	public void setIsNear(boolean bool)
 	{
-		pathname = string;
+		isNear = bool;
+	}
+
+	public boolean getHasGivenPoint()
+	{
+		return hasGivenPoint;
+	}
+	
+	public void setHasGivenPoint(boolean bool)
+	{
+		hasGivenPoint = bool;
+	}
+	
+	public int getImageRef()
+	{
+		return imgref;
+	}
+	
+	public void setImageRef(int num)
+	{
+		imgref = num;
 	}
 
 }
