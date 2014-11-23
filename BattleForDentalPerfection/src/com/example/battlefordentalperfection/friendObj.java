@@ -4,7 +4,7 @@ public class friendObj {
 
 	private int posX, posY, imgref;
 	private double radius;
-	private boolean isActive, isDental;
+	private boolean isActive, isDental, isNear, hasGivenBenefit;
 	
 	//variables for player collision detection
 	//in landscape orientation, playerCol12 is the top point of the players circle
@@ -13,7 +13,7 @@ public class friendObj {
 	//rest of the points
 	private Point playerCol12, playerCol130, playerCol3, playerCol430, playerCol6, playerCol730, playerCol9, playerCol1030;
 	
-	friendObj(int px, int py, double rad, int imgr, boolean isUp, boolean isDent)
+	friendObj(int px, int py, double rad, int imgr, boolean isUp, boolean isDent, boolean isN, boolean hgb)
 	{
 		posX = px;
 		posY = py;
@@ -21,6 +21,8 @@ public class friendObj {
 		imgref = imgr;
 		isActive = isUp;
 		isDental = isDent;
+		isNear = isN;
+		hasGivenBenefit = hgb;
 		playerCol12 = new Point(0,0);
 		playerCol130 = new Point(0,0);
 		playerCol3 = new Point(0,0);
@@ -80,7 +82,27 @@ public class friendObj {
 	{
 		isDental = bool;
 	}
+
+	public boolean getIsNear()
+	{
+		return isNear;
+	}
 	
+	public void setIsNear(boolean bool)
+	{
+		isNear = bool;
+	}
+
+	public boolean getHasGivenBenefit()
+	{
+		return hasGivenBenefit;
+	}
+	
+	public void setHasGivenBenefit(boolean bool)
+	{
+		hasGivenBenefit = bool;
+	}
+
 	public int getImageRef()
 	{
 		return imgref;

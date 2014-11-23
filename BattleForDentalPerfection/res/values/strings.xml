@@ -16,7 +16,9 @@
     <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">creditso to unlocko this charactero?</string>
     <string name="buttonCharBuyConfirmEng">Unlock</string><string name="buttonCharBuyConfirmSpn">Unlocko</string>
     <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Insufficiento creditos</string>
-    <string name="textHighScoreEng">High Score:</string><string name="textHighScoreSpn">Higho scoreo:</string>
+    <string name="textHighScoreEasyEng">High Score (Easy):</string><string name="textHighScoreEasySpn">Higho scoreo (Easyo):</string>
+    <string name="textHighScoreMediumEng">High Score (Medium):</string><string name="textHighScoreMediumSpn">Higho scoreo (Mediumo):</string>
+    <string name="textHighScoreHardEng">High Score (Hard):</string><string name="textHighScoreHardSpn">Higho scoreo (Hardo):</string>
     <string name="buttonDifficultyEasyEng">Easy</string><string name="buttonDifficultyEasySpn">Easyo</string>
     <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Mediumo</string>
     <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Hardo</string>

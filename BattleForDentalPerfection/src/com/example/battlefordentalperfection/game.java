@@ -24,7 +24,8 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private GameThread gameThread; // controls the game loop
 	private Activity activity;
 	private Random rand;
-	   
+
+	private final int SPEED_OF_GAME = 3; //pixels per cycle objects move
 	private int score; //obstacles cleared
 	private int hp; //amount of hits player can take
 	private int overdose; //progress of overdose meter
@@ -38,25 +39,30 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private int hostileHeightMiddle;
 	private int hostileHeightMidHigh;
 	private int hostileHeightHighest;
-	private int currentCheck = 999;
+	private int friendlyOffset;
+	private int activeFriendly = 9;
 	
 	private boolean gameover = true; //true if game done, false if running
 	private boolean playerHasTapped = false;
 	private boolean isHit = false;
+	private boolean spawnDental = false;
+	private boolean spawnFood = false;
+	private boolean foodHpBonus = false;
 	
 	private final double gravity = 10; //constant downwards vector
 	private final double piDivFour = Math.PI/4; //constant downwards vector
 	private final double gracePeriod = 1.5;
 	private double gotHitTime;
+	private double gotFoodTime;
 	private double delta;//variable upwards vector
 	private double totalPassedTimeMS;//for threaded game loop
 	private double elapsedTimeInSec;//for use in making events
 	private double radius;//for use in making events
-	private double timeInterval; //used in gamethread
 	
 	private Bitmap junkOne, junkTwo, junkThree, junkFour, junkFive, junkSix;
-	private Bitmap foodOne, foodTwo, foodThree, foodFour;
+	private Bitmap foodOne, foodTwo, foodThree;
 	private Bitmap dentalOne, dentalTwo;
+	private Bitmap playerUp, playerDown;
 	
 	private ArrayList<friendObj> friendObjArr = new ArrayList<friendObj>(); //pos 0 = player, others are dental/food products
 	private ArrayList<hostileObj> hostileObjArr = new ArrayList<hostileObj>(); //contains the positions for hostile entities
@@ -92,9 +98,9 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		friendObjArr.clear();
 		hostileObjArr.clear();
 		
-		friendObjArr.add(0, new friendObj(screenWidth / 2, screenHeight / 4, 15, 0, true, false));
-		friendObjArr.add(1, new friendObj(0, 0, 15, 0, false, false));
-		friendObjArr.add(2, new friendObj(0, 0, 15, 0, false, false));
+		friendObjArr.add(0, new friendObj(screenWidth / 2, screenHeight / 4, 15, 0, true, false, false, true));
+		friendObjArr.add(1, new friendObj(0, 0, 15, 0, false, false, false, true));
+		friendObjArr.add(2, new friendObj(0, 0, 15, 0, false, false, false, true));
 
 		hostileObjArr.add(0, new hostileObj(0, 0, 0, 0, 0, 0, 0, false, false, false));
 		hostileObjArr.add(1, new hostileObj(0, 0, 0, 0, 0, 0, 0, false, false, false));
@@ -112,10 +118,12 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         foodOne = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
         foodTwo = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
         foodThree = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
-        foodFour = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
 
         dentalOne = BitmapFactory.decodeResource(getResources(), R.drawable.hero2);
         dentalTwo = BitmapFactory.decodeResource(getResources(), R.drawable.hero2);
+        
+        playerUp = BitmapFactory.decodeResource(getResources(), R.drawable.right);
+        playerDown = BitmapFactory.decodeResource(getResources(), R.drawable.left);
 
 		backgroundPaint = new Paint(); // Paint for drawing the target
 	    testPaint = new Paint(); // Paint for drawing
@@ -137,6 +145,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		hostileHeightMiddle = screenWidth/2;
 		hostileHeightMidHigh = screenWidth*4/6;
 		hostileHeightHighest = screenWidth*5/6;
+		friendlyOffset = screenWidth/12;
 	      
 		radius = ((screenHeight+screenWidth)/2)/50;
 
@@ -170,26 +179,25 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	public void resetPlayerMath(MotionEvent event)
 	{
 		//playerMathXVal = friendObjArr.get(0).getPosX();
-		delta = screenWidth / 300;
+		delta = screenWidth / 350;
 		friendObjArr.get(0).setPosX(playerMathXVal);
 		playerHasTapped = true;
 	}
 	
     public void updateScreen(double timeInMS)
     {
-    	isHit = false;
         elapsedTimeInSec += (timeInMS / 1000.0); // convert to seconds
         
         if(hp <=0)
-    		gameOverDialog();        	
-
-        /** --------------- **/
-        /** PLAYER MOVEMENT **/
-        /** --------------- **/
+    		gameOverDialog();
+        
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+        /** --------------------------------------------------PLAYER MOVEMENT--------------------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
         
     	if(playerMathXVal >= 0 && playerMathXVal <= screenWidth)
     	{
-    		playerMathXVal += (delta+gravity);//piDivFour
+    		playerMathXVal += (delta+gravity);
     		delta -= 0.5;
     		friendObjArr.get(0).setPlayerCol12(playerMathXVal+radius, friendObjArr.get(0).getPosY());
     		friendObjArr.get(0).setPlayerCol130(playerMathXVal+piDivFour, friendObjArr.get(0).getPosY()+piDivFour);
@@ -205,121 +213,97 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         
 		friendObjArr.get(0).setPosX(playerMathXVal);
 
-        /** ----------------------- **/
-        /** HOSTILE OBJECT CREATION **/
-        /** ----------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+        /** ----------------------------------------HOSTILE AND FRIENDLY OBJECT CREATION---------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
         
     	if(elapsedTimeInSec >= (4+timeBuffer)) //start a hostile object
     	{
+    		/** Determines if a friendly objects spawns within hostile objects**/
+			spawnFood = false;
+			spawnDental = false;
+    		for(int x = 1; x < friendObjArr.size(); x++) //goes through the 2 remaining elements of friendObjArr 
+    		{
+    			if(!friendObjArr.get(x).getIsActive())//find if a friendly is not active
+    			{
+    				if(rand.nextInt(100) < 40) //25% chance of food spawning
+    				{
+    					activeFriendly = x;
+    					spawnFood = true;
+    					friendObjArr.get(x).setIsDental(false);
+    					break;
+    				}
+    				else if(rand.nextInt(100) < 20) //10% chance of dental product spawning
+    					{
+    						activeFriendly = x;
+    						spawnDental = true;
+        					friendObjArr.get(x).setIsDental(true);
+    						break;
+    					}
+    			}
+    		}
+    		
+    		/**creation of hostile object with a possible nested friendly object**/
     		for(int x = 0; x < hostileObjArr.size(); x++) //goes through the 5 elements of hostileObjArr 
     		{
-    			if(!hostileObjArr.get(x).getIsActive())//find the first that is not active
+    			if(!hostileObjArr.get(x).getIsActive())//find the first hostile that is not active
     			{
-    				hostileObjArr.get(x).setPosYMin(screenHeight-hostileWidth);
-    				hostileObjArr.get(x).setPosYMax(screenHeight);
+    				hostileObjArr.get(x).setPosYMin(screenHeight);
+    				hostileObjArr.get(x).setPosYMax(screenHeight+hostileWidth);
     				hostileObjArr.get(x).setPosXMaxTop(screenWidth);
     				hostileObjArr.get(x).setPosXMinBot(0);
+    				if(spawnFood || spawnDental)
+    				{
+    					friendObjArr.get(activeFriendly).setPosY(screenHeight+(hostileWidth/2));
+        				friendObjArr.get(activeFriendly).setRad(radius);
+        				friendObjArr.get(activeFriendly).setHasGivenBenefit(false);
+    				}
     				switch(rand.nextInt(6))//6 possible gaps in obstacle 
     				{
     				case 0: //largest gap
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightHighest);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightLowest);
-        				hostileObjArr.get(x).setImageRef(1);
+    					assignValuesToObjects(x, 1, hostileHeightHighest, hostileHeightLowest);
         				break;
     				case 1: //medium gap one
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightHighest);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightMidLow);
-        				hostileObjArr.get(x).setImageRef(2);
+    					assignValuesToObjects(x, 2, hostileHeightHighest, hostileHeightMidLow);
         				break;
     				case 2: //medium gap two
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightMidHigh);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightLowest);
-        				hostileObjArr.get(x).setImageRef(3);
+    					assignValuesToObjects(x, 3, hostileHeightMidHigh, hostileHeightLowest);
         				break;
     				case 3: //small gap 1
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightHighest);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightMiddle);
-        				hostileObjArr.get(x).setImageRef(4);
+    					assignValuesToObjects(x, 4, hostileHeightHighest, hostileHeightMiddle);
         				break;
     				case 4: //small gap 2
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightMidHigh);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightMidLow);
-        				hostileObjArr.get(x).setImageRef(5);
+    					assignValuesToObjects(x, 5, hostileHeightMidHigh, hostileHeightMidLow);
         				break;
     				case 5: //small gap 3
-        				hostileObjArr.get(x).setPosXMinTop(hostileHeightMiddle);
-        				hostileObjArr.get(x).setPosXMaxBot(hostileHeightLowest);
-        				hostileObjArr.get(x).setImageRef(6);
+    					assignValuesToObjects(x, 6, hostileHeightMiddle, hostileHeightLowest);
         				break;
     				}//end of switch
     				hostileObjArr.get(x).setIsActive(true);
+    				if(spawnFood || spawnDental)
+    				{
+    					friendObjArr.get(activeFriendly).setIsActive(true);
+    				}
 					elapsedTimeInSec = 0; //resets the spawn timer
 			    	timeBuffer++;
-			    	if(timeBuffer>4)
-			    		timeBuffer=0;
+			    		if(timeBuffer > 4)
+							timeBuffer = 0;
+			    			
 					break;
     			}//end of if isActive
     		}//end of for
     	}//end of if time passed
 
-        /** ------------------------ **/
-        /** FRIENDLY OBJECT CREATION **/
-        /** ------------------------ **/
-        
-    	/*if(elapsedTimeInSec >=5.0) //randoms a possible friendly object
-    	{
-    		for(int x = 1; x < 3; x++) //goes through the 2 remaining elements of friendObjArr 
-    		{
-    			if(!friendObjArr.get(x).getIsActive())//find the first that is not active
-    			{
-    				friendObjArr.get(x).setPosY(screenHeight);
-    				friendObjArr.get(x).setRad(radius);
-    				switch(rand.nextInt(5))//5 possible placements between obstacles
-    				{
-    				case 0: //highest point
-    					friendObjArr.get(x).setPosX(hostileHeightHighest);
-        				friendObjArr.get(x).setIsDental(true);
-        				friendObjArr.get(x).setImageRef(1);
-            			break;
-    				case 1: //mid=high point
-    					friendObjArr.get(x).setPosX(hostileHeightMidHigh);
-        				friendObjArr.get(x).setIsDental(false);
-        				friendObjArr.get(x).setImageRef(2);
-            			break;
-    				case 2: //middle point
-    					friendObjArr.get(x).setPosX(hostileHeightMiddle);
-        				friendObjArr.get(x).setIsDental(false);
-        				friendObjArr.get(x).setImageRef(3);
-            			break;
-    				case 3: //mid-low point
-    					friendObjArr.get(x).setPosX(hostileHeightMidLow);
-        				friendObjArr.get(x).setIsDental(false);
-        				friendObjArr.get(x).setImageRef(4);
-            			break;
-    				case 4: //lowest point
-    					friendObjArr.get(x).setPosX(hostileHeightLowest);
-        				friendObjArr.get(x).setIsDental(true);
-        				friendObjArr.get(x).setImageRef(5);
-            			break;
-    				}
-    				elapsedTimeInSec = 0; //resets the spawn timer
-    				friendObjArr.get(x).setIsActive(true);
-    				break;
-    			}
-    		}
-    	}
-    	*/
-
-        /** ---------------- **/
-        /** HOSTILE MOVEMENT **/
-        /** ---------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+        /** -------------------------------------------------HOSTILE MOVEMENT--------------------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
         
     	for(int x = 0; x < hostileObjArr.size(); x++) //updates positions of active hostileObjArr objects
 		{
 			if(hostileObjArr.get(x).getIsActive())//find active objects
 			{
-				hostileObjArr.get(x).setPosYMin(hostileObjArr.get(x).getPosYMin()-2);
-				hostileObjArr.get(x).setPosYMax(hostileObjArr.get(x).getPosYMax()-2);
+				hostileObjArr.get(x).setPosYMin(hostileObjArr.get(x).getPosYMin()-SPEED_OF_GAME);
+				hostileObjArr.get(x).setPosYMax(hostileObjArr.get(x).getPosYMax()-SPEED_OF_GAME);
 				
 				if((hostileObjArr.get(x).getPosYMin() <= friendObjArr.get(0).getPosY()+(1.5*radius)) && hostileObjArr.get(x).getIsNear() == false) //when object comes close enough to possibly be hit
 					hostileObjArr.get(x).setIsNear(true);
@@ -342,41 +326,46 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 			}
 		}
 
-        /** ----------------- **/
-        /** FRIENDLY MOVEMENT **/
-        /** ----------------- **/
-        
-    	/*
-    	for(int x = 1; x < 3; x++) //updates positions of active friendObjArr objects
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+        /** -------------------------------------------------FRIENDLY MOVEMENT-------------------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+    	
+    	for(int x = 1; x < friendObjArr.size(); x++) //updates positions of active friendObjArr objects
 		{
 			if(friendObjArr.get(x).getIsActive())//find active objects
 			{
-				friendObjArr.get(x).setPosY(friendObjArr.get(x).getPosY()-1);
+				friendObjArr.get(x).setPosY(friendObjArr.get(x).getPosY()-SPEED_OF_GAME);
+				
+				if((friendObjArr.get(x).getPosY() <= friendObjArr.get(0).getPosY()+(1.5*radius)) && friendObjArr.get(x).getIsNear() == false) //when object comes close enough to possibly be hit
+					friendObjArr.get(x).setIsNear(true);
+				
+				if((friendObjArr.get(x).getPosY() <= friendObjArr.get(0).getPosY()-(1.5*radius)) && friendObjArr.get(x).getIsNear() == true) //when object goes behind the player enough
+					friendObjArr.get(x).setIsNear(false);
+				
 				if(friendObjArr.get(x).getPosY() <= 0) //when object goes off edge of screen
-					friendObjArr.get(x).setIsActive(true);
+					friendObjArr.get(x).setIsActive(false);
 			}
 		}
-    	*/
     	
-        /** --------------------------- **/
-        /** HOSTILE COLLISION DETECTION **/
-        /** --------------------------- **/
-        
-    	for(int x = 0; x < hostileObjArr.size(); x++) //updates positions of active hostileObjArr objects
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+        /** --------------------------------------------HOSTILE COLLISION DETECTION--------------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+
+    	isHit = false;
+    	for(int x = 0; x < hostileObjArr.size(); x++) 
 		{
     		//check if object is near player, no need to collision detect if they can't be hit 
     		//AND if the player is able to be hit again
 			if(hostileObjArr.get(x).getIsNear() && (gracePeriod < (System.currentTimeMillis() / 1000) - gotHitTime))
 			{
-				currentCheck = x;
-				isHit = friendObjArr.get(0).getPlayerCol12().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol130().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol3().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol430().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol6().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol730().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol9().pointCompare(hostileObjArr.get(x));
-				isHit = friendObjArr.get(0).getPlayerCol1030().pointCompare(hostileObjArr.get(x));
+				isHit = friendObjArr.get(0).getPlayerCol12().pointCompareHostile(hostileObjArr.get(x));		if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol130().pointCompareHostile(hostileObjArr.get(x));	if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol3().pointCompareHostile(hostileObjArr.get(x));		if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol430().pointCompareHostile(hostileObjArr.get(x));	if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol6().pointCompareHostile(hostileObjArr.get(x));		if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol730().pointCompareHostile(hostileObjArr.get(x));	if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol9().pointCompareHostile(hostileObjArr.get(x));		if(isHit)break;
+				isHit = friendObjArr.get(0).getPlayerCol1030().pointCompareHostile(hostileObjArr.get(x));	if(isHit)break;
 			}
 		}
     	
@@ -386,6 +375,87 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
     		gotHitTime = System.currentTimeMillis() / 1000;
     	}
     	
+    	/** -------------------------------------------------------------------------------------------------------------------- **/
+        /** --------------------------------------------FRIENDLY COLLISION DETECTION-------------------------------------------- **/
+        /** -------------------------------------------------------------------------------------------------------------------- **/
+    	
+    	isHit = false;
+    	for(int x = 1; x < friendObjArr.size(); x++)
+		{
+    		//check if object is near player, no need to collision detect if they can't be hit
+			if(friendObjArr.get(x).getIsNear() && (gracePeriod < (System.currentTimeMillis() / 1000) - gotFoodTime))
+			{
+				isHit = friendObjArr.get(0).getPlayerCol12().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol130().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol3().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol430().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol6().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol730().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol9().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+				if(!isHit)
+				isHit = friendObjArr.get(0).getPlayerCol1030().pointCompareFriendly(friendObjArr.get(x), 2*radius);
+			}
+			
+			if(isHit && !friendObjArr.get(x).getHasGivenBenefit())
+			{
+	    		gotFoodTime = System.currentTimeMillis() / 1000;
+				friendObjArr.get(x).setIsActive(false);
+				if(friendObjArr.get(x).getIsDental())
+				{
+					switch(sharedVars.getDifficulty()){
+					case 0: if(hp<3)hp = 3; break;
+					case 1: if(hp<2)hp = 2; break;
+					case 2: if(hp<1)hp = 1; break;	
+					default: hp = 3; break;
+					}
+					
+					overdose = 0;
+					foodHpBonus = false;
+				}
+				if(!friendObjArr.get(x).getIsDental())
+				{
+					overdose++;
+					if(overdose == 4 && !foodHpBonus)
+					{
+						hp++;
+						foodHpBonus = true;
+					}
+					if(overdose >= 5)
+					{
+						overdose = 5;
+						hp--;
+					}
+				}
+				friendObjArr.get(x).setHasGivenBenefit(true);
+				break;
+			}
+		}
+    	
+    }//END OF updateScreen
+    
+    public void assignValuesToObjects(int pos, int imgRef, int high, int low)
+    {
+    	hostileObjArr.get(pos).setPosXMinTop(high);
+		hostileObjArr.get(pos).setPosXMaxBot(low);
+		hostileObjArr.get(pos).setImageRef(imgRef);
+		if(spawnFood || spawnDental)
+		{
+			if(rand.nextInt(2) == 0)
+				friendObjArr.get(activeFriendly).setPosX(high - friendlyOffset);
+			else
+				friendObjArr.get(activeFriendly).setPosX(low + friendlyOffset); 
+			
+			if(friendObjArr.get(activeFriendly).getIsDental())
+				friendObjArr.get(activeFriendly).setImageRef(1);
+			else
+				friendObjArr.get(activeFriendly).setImageRef(2);
+		}
     }
     
     public void drawEntities(Canvas canvas)
@@ -421,34 +491,52 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         		}
         	}
 		}
-        /*
-        for(int x = 1; x < 3; x++) //checks what friendly objects are active to draw
+        
+        for(int x = 1; x < friendObjArr.size(); x++) //checks what friendly objects are active to draw
 		{
         	if(friendObjArr.get(x).getIsActive())//find active objects
         	{
         		switch(friendObjArr.get(x).getImageRef())
         		{
         		case 1:
-        			drawBitmap(canvas, dentalOne, true, x);
+        			drawBitmap(canvas, dentalOne, false, x);
             		break;
         		case 2:
-        			drawBitmap(canvas, foodOne, true, x);
+        			drawBitmap(canvas, foodOne, false, x);
             		break;
         		case 3:
-        			drawBitmap(canvas, foodTwo, true, x);
+        			drawBitmap(canvas, foodTwo, false, x);
             		break;
         		case 4:
-        			drawBitmap(canvas, foodThree, true, x);
+        			drawBitmap(canvas, foodThree, false, x);
             		break;
         		case 5:
-        			drawBitmap(canvas, dentalTwo, true, x);
+        			drawBitmap(canvas, dentalTwo, false, x);
             		break;
         		}
         	}
 		}
-        */String sHp = "HP: " + Integer.valueOf(hp);
-        String sScore = "Score: " + Integer.valueOf(score);/*
-        String sHit = "isHit: " + isHit;
+        
+        //drawing player depending on vector
+        if(Math.abs(delta)>gravity)
+        	drawBitmap(canvas, playerDown, false, 0);
+        else
+        	drawBitmap(canvas, playerUp, false, 0);
+        
+        String sHp = "HP: " + Integer.valueOf(hp);
+        String sScore = "Score: " + Integer.valueOf(score);
+        String sOD = "Overdose: " + Integer.valueOf(overdose);/*
+        String sdelta = "Delta: " + Double.valueOf(delta);
+        String friendlyOney = "friendly1y: " + Integer.valueOf(friendObjArr.get(1).getPosY());
+        String friendlyTwoy = "friendly2y: " + Integer.valueOf(friendObjArr.get(2).getPosY());
+        String friendlyOnex = "friendly1x: " + Integer.valueOf(friendObjArr.get(1).getPosX());
+        String friendlyTwox = "friendly2x: " + Integer.valueOf(friendObjArr.get(2).getPosX());
+        String friendlyRect1pmx = "friendlyRect1PosX-r: " + String.valueOf(friendObjArr.get(1).getPosX() - radius);
+        String friendlyRect1pmy = "friendlyRect1PosY-r: " + String.valueOf(friendObjArr.get(1).getPosY() - radius);
+        String friendlyRect1ppx = "friendlyRect1PosX+r: " + String.valueOf(friendObjArr.get(1).getPosX() + radius);
+        String friendlyRect1ppy = "friendlyRect1PosY+r: " + String.valueOf(friendObjArr.get(1).getPosY() + radius);
+        String friendlyRectr = "friendlyRect2*r: " + String.valueOf(2*radius);
+        String sHit = "isHit: " + isHit; 
         String sCheck = "currentCheck: " + Integer.valueOf(currentCheck);
         String hostile1near = "hostile1near: " + Integer.valueOf(hostileObjArr.get(0).getImageRef())+" "+hostileObjArr.get(0).getIsNear();
         String hostile2near = "hostile2near: " + Integer.valueOf(hostileObjArr.get(1).getImageRef())+" "+hostileObjArr.get(1).getIsNear();
@@ -472,7 +560,17 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         String hostileFivePos = "hostile5POS: " + Integer.valueOf(hostileObjArr.get(4).getPosYMin());
         
         */canvas.drawText(sHp, 5, 30, textPaint);
-        canvas.drawText(sScore, 5, 60, textPaint);/*
+        canvas.drawText(sScore, 5, 60, textPaint);
+        canvas.drawText(sOD, 5, 90, textPaint);/*
+        canvas.drawText(sdelta, 5, 150, textPaint);
+        canvas.drawText(sTimeBuff, 5, 90, textPaint);
+        canvas.drawText(friendlyOnex, 5, 90, textPaint);
+        canvas.drawText(friendlyOney, 5, 120, textPaint);
+        canvas.drawText(friendlyRect1pmx, 5, 150, textPaint);
+        canvas.drawText(friendlyRect1pmy, 5, 180, textPaint);
+        canvas.drawText(friendlyRect1ppx, 5, 210, textPaint);
+        canvas.drawText(friendlyRect1ppy, 5, 240, textPaint);
+        canvas.drawText(friendlyRectr, 5, 270, textPaint);
         canvas.drawText(sHit, 5, 50, textPaint);
         canvas.drawText(sCheck, 5, 80, textPaint);
         canvas.drawText(hostile1near, 5, 110, textPaint);
@@ -496,6 +594,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         canvas.drawText(hostileFourPos, 5, 590, textPaint);
         canvas.drawText(hostileFivePos, 5, 620, textPaint);*/
         
+        //circle representing players hitbox
         canvas.drawCircle(friendObjArr.get(0).getPosX(), friendObjArr.get(0).getPosY(), (float) friendObjArr.get(0).getRad(),
                 testPaint);
     }
@@ -510,8 +609,12 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
     				hostileObjArr.get(x).getPosYMin(),hostileObjArr.get(x).getPosXMaxTop(), hostileObjArr.get(x).getPosYMax()), null);
     	}
     	else
-    		canvas.drawBitmap(bmp, null, new Rect((int)(friendObjArr.get(x).getPosX() - radius),
-    				(int)(friendObjArr.get(x).getPosY() - radius),(int)(2*radius), (int)(2*radius)), null);
+    	{
+    		canvas.drawBitmap(bmp, null,new Rect((int)(friendObjArr.get(x).getPosX() - 2*radius),
+    											(int)(friendObjArr.get(x).getPosY() - 2*radius),
+    											(int)(friendObjArr.get(x).getPosX() + 2*radius), 
+    											(int)(friendObjArr.get(x).getPosY() + 2*radius)), null);
+       	}
     }
     
 	@Override
@@ -560,8 +663,12 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		gameover = true;
 		
 		SharedPreferences saveFile = activity.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
-		if (score > sharedVars.getHighScore())
-			sharedVars.setHighScore(score, saveFile);
+		if (sharedVars.getDifficulty() == 0 && score > sharedVars.getHighScore(0))
+			sharedVars.setHighScore(0, score, saveFile);
+		if (sharedVars.getDifficulty() == 1 && score > sharedVars.getHighScore(1))
+			sharedVars.setHighScore(1, score, saveFile);
+		if (sharedVars.getDifficulty() == 2 && score > sharedVars.getHighScore(2))
+			sharedVars.setHighScore(2, score, saveFile);
 		
 		final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 		if(sharedVars.getbIsEng())
@@ -646,7 +753,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	        			if(playerHasTapped && !gameover)
 	        			{
 	        				currentTime = System.currentTimeMillis();
-	        				timeInterval = elapsedTimeMS = currentTime - previousTime;
+	        				elapsedTimeMS = currentTime - previousTime;
 	        				totalPassedTimeMS += elapsedTimeMS / 1000.00;
 	        				updateScreen(totalPassedTimeMS); // update game state
 	        				drawEntities(canvas); // draw 

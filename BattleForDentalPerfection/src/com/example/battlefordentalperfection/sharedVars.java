@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 public class sharedVars {
 
 	//highscore from game
-	private static int highScore = 0;
+	private static int highScoreEasy = 0;
+	private static int highScoreMedium = 0;
+	private static int highScoreHard = 0;
 	//difficulty settings for game
 	private static int difficulty = 0; //0 = easy, 1= med, 2 = hard;
 	//toggles language between English and Spanish
@@ -18,7 +20,9 @@ public class sharedVars {
 	//tracks credits earned from timer and spent by unlocking characters
 	private static int credits = 10;
 	//vars used to store save data
-	private static final String HIGH_SCORE = "HIGH_SCORE";
+	private static final String HIGH_SCORE_EASY = "HIGH_SCORE_EASY";
+	private static final String HIGH_SCORE_MEDIUM = "HIGH_SCORE_MEDIUM";
+	private static final String HIGH_SCORE_HARD = "HIGH_SCORE_HARD";
 	private static final String DIFFICULTY = "DIFFICULTY";
 	private static final String CURRENT_LANG = "CURRENT_LANG";
 	private static final String CREDITS = "CREDITS";
@@ -124,23 +128,45 @@ public class sharedVars {
 		credits = saveFile.getInt(CREDITS, 10);
 	}
 	
-	static int getHighScore()
+	static int getHighScore(int diff)
 	{
-		return highScore;
+		switch(diff){
+		case 0: return highScoreEasy;
+		case 1: return highScoreMedium;
+		case 2: return highScoreHard;
+		}
+		return 0;
 	}
 	
-	static void setHighScore(int num, SharedPreferences saveFile)
+	static void setHighScore(int diff, int num, SharedPreferences saveFile)
 	{
-		highScore = num;
-		//adds value to preferences file
 		SharedPreferences.Editor editor = saveFile.edit();
-		   editor.putInt(HIGH_SCORE, num);
-		   editor.commit();
+		switch(diff){
+		case 0: 
+			highScoreEasy = num;
+			//adds value to preferences file
+			editor.putInt(HIGH_SCORE_EASY, num);
+			editor.commit();
+			break;
+		case 1: highScoreMedium = num;
+			//adds value to preferences file
+			editor.putInt(HIGH_SCORE_MEDIUM, num);
+			editor.commit();
+			break;
+		case 2: highScoreHard = num;
+			//adds value to preferences file
+			editor.putInt(HIGH_SCORE_HARD, num);
+			editor.commit();
+			break;
+		}
+		
 	}
 	
 	static void loadHighScore(SharedPreferences saveFile)
 	{
-		highScore = saveFile.getInt(HIGH_SCORE, 0);
+		highScoreEasy = saveFile.getInt(HIGH_SCORE_EASY, 0);
+		highScoreMedium = saveFile.getInt(HIGH_SCORE_MEDIUM, 0);
+		highScoreHard = saveFile.getInt(HIGH_SCORE_HARD, 0);
 	}
 	
 	static int getDifficulty()

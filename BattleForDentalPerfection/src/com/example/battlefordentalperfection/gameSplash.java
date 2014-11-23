@@ -33,10 +33,13 @@ public class gameSplash extends ActionBarActivity{
 	
 	public void translate()
 	{
+		String message;
 		Button buttonDiff = (Button) findViewById(R.id.buttonDifficulty);
 		Button buttonStart = (Button) findViewById(R.id.buttonStartGame);
 		Button buttonGameReturn = (Button) findViewById(R.id.buttonGameReturn);
-		TextView textHighScore = (TextView) findViewById(R.id.textViewHighScore);
+		TextView textHighScoreEasy = (TextView) findViewById(R.id.textViewHighScoreEasy);
+		TextView textHighScoreMedium = (TextView) findViewById(R.id.textViewHighScoreMedium);
+		TextView textHighScoreHard = (TextView) findViewById(R.id.textViewHighScoreHard);
 		
 		if (sharedVars.getbIsEng())
 		{
@@ -53,8 +56,12 @@ public class gameSplash extends ActionBarActivity{
 				buttonDiff.setText(getString(R.string.buttonDifficultyHardEng));
 				break;
 			}
-			String message = getString(R.string.textHighScoreEng)+" "+String.valueOf(sharedVars.getHighScore());
-			textHighScore.setText(message);
+			message = getString(R.string.textHighScoreEasyEng)+" "+String.valueOf(sharedVars.getHighScore(0));
+			textHighScoreEasy.setText(message);
+			message = getString(R.string.textHighScoreMediumEng)+" "+String.valueOf(sharedVars.getHighScore(1));
+			textHighScoreMedium.setText(message);
+			message = getString(R.string.textHighScoreHardEng)+" "+String.valueOf(sharedVars.getHighScore(2));
+			textHighScoreHard.setText(message);
 		}
 		else
 		{
@@ -71,8 +78,12 @@ public class gameSplash extends ActionBarActivity{
 				buttonDiff.setText(getString(R.string.buttonDifficultyHardSpn));
 				break;
 			}
-			String message = getString(R.string.textHighScoreSpn)+" "+String.valueOf(sharedVars.getHighScore());
-			textHighScore.setText(message);		
+			message = getString(R.string.textHighScoreEasySpn)+" "+String.valueOf(sharedVars.getHighScore(0));
+			textHighScoreEasy.setText(message);
+			message = getString(R.string.textHighScoreMediumSpn)+" "+String.valueOf(sharedVars.getHighScore(1));
+			textHighScoreMedium.setText(message);
+			message = getString(R.string.textHighScoreHardSpn)+" "+String.valueOf(sharedVars.getHighScore(2));
+			textHighScoreHard.setText(message);	
 		}
 	};
 	
