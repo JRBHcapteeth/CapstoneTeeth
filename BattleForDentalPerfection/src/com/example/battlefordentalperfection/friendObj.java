@@ -2,17 +2,35 @@ package com.example.battlefordentalperfection;
 
 public class friendObj {
 
-	private static int posX, posY, radius;
-	private static String pathname;
-	private boolean isActive;
+	private int posX, posY, imgref;
+	private double radius;
+	private boolean isActive, isDental, isNear, hasGivenBenefit;
 	
-	friendObj(int px, int py, int rad, String str, boolean isUp)
+	//variables for player collision detection
+	//in landscape orientation, playerCol12 is the top point of the players circle
+	//rest follow in a clockwise cycle
+	//in portrait mode, playerCol12 is the right-most point, going clockwise for the
+	//rest of the points
+	private Point playerCol12, playerCol130, playerCol3, playerCol430, playerCol6, playerCol730, playerCol9, playerCol1030;
+	
+	friendObj(int px, int py, double rad, int imgr, boolean isUp, boolean isDent, boolean isN, boolean hgb)
 	{
 		posX = px;
 		posY = py;
 		radius = rad;
-		pathname = str;
+		imgref = imgr;
 		isActive = isUp;
+		isDental = isDent;
+		isNear = isN;
+		hasGivenBenefit = hgb;
+		playerCol12 = new Point(0,0);
+		playerCol130 = new Point(0,0);
+		playerCol3 = new Point(0,0);
+		playerCol430 = new Point(0,0);
+		playerCol6 = new Point(0,0);
+		playerCol730 = new Point(0,0);
+		playerCol9 = new Point(0,0);
+		playerCol1030 = new Point(0,0);
 	}
 	
 	public int getPosX()
@@ -35,14 +53,14 @@ public class friendObj {
 		posY = num;
 	}
 
-	public int getRad()
+	public double getRad()
 	{
 		return radius;
 	}
 	
-	public void setRad(int num)
+	public void setRad(double rad)
 	{
-		radius = num;
+		radius = rad;
 	}
 	
 	public boolean getIsActive()
@@ -55,14 +73,124 @@ public class friendObj {
 		isActive = bool;
 	}
 	
-	public String getPathname()
+	public boolean getIsDental()
 	{
-		return pathname;
+		return isDental;
 	}
 	
-	public void setPathname(String string)
+	public void setIsDental(boolean bool)
 	{
-		pathname = string;
+		isDental = bool;
+	}
+
+	public boolean getIsNear()
+	{
+		return isNear;
+	}
+	
+	public void setIsNear(boolean bool)
+	{
+		isNear = bool;
+	}
+
+	public boolean getHasGivenBenefit()
+	{
+		return hasGivenBenefit;
+	}
+	
+	public void setHasGivenBenefit(boolean bool)
+	{
+		hasGivenBenefit = bool;
+	}
+
+	public int getImageRef()
+	{
+		return imgref;
+	}
+	
+	public void setImageRef(int num)
+	{
+		imgref = num;
+	}
+
+	public Point getPlayerCol12()
+	{
+		return playerCol12;
+	}
+	
+	public void setPlayerCol12(double x, double y)
+	{
+		playerCol12.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol130()
+	{
+		return playerCol130;
+	}
+	
+	public void setPlayerCol130(double x, double y)
+	{
+		playerCol130.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol3()
+	{
+		return playerCol3;
+	}
+	
+	public void setPlayerCol3(double x, double y)
+	{
+		playerCol3.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol430()
+	{
+		return playerCol430;
+	}
+	
+	public void setPlayerCol430(double x, double y)
+	{
+		playerCol430.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol6()
+	{
+		return playerCol6;
+	}
+	
+	public void setPlayerCol6(double x, double y)
+	{
+		playerCol6.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol730()
+	{
+		return playerCol730;
+	}
+	
+	public void setPlayerCol730(double x, double y)
+	{
+		playerCol730.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol9()
+	{
+		return playerCol9;
+	}
+	
+	public void setPlayerCol9(double x, double y)
+	{
+		playerCol9.setPoint(x, y);
+	}
+	
+	public Point getPlayerCol1030()
+	{
+		return playerCol1030;
+	}
+	
+	public void setPlayerCol1030(double x, double y)
+	{
+		playerCol1030.setPoint(x, y);
 	}
 	
 }

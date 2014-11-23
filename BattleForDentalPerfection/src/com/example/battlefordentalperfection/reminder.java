@@ -1,9 +1,14 @@
 package com.example.battlefordentalperfection;
 
+<<<<<<< HEAD
 
 import java.util.Calendar;
 import android.app.Activity;
 import android.app.AlarmManager;
+=======
+import android.app.Notification;
+import android.app.NotificationManager;
+>>>>>>> origin/master
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +17,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TimePicker;
 
+public class reminder extends ActionBarActivity {
 
+<<<<<<< HEAD
 public class reminder extends Activity {
 
     private TimePicker tpFirst = null; 
@@ -25,6 +32,9 @@ public class reminder extends Activity {
     
     @Override 
 public void onCreate(Bundle savedInstanceState) {
+=======
+    public void onCreate(Bundle savedInstanceState) {
+>>>>>>> origin/master
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.reminder_home);
@@ -32,9 +42,12 @@ public void onCreate(Bundle savedInstanceState) {
         
         Button btnNext = (Button) findViewById(R.id.btnBack);
         Button btnSet = (Button) findViewById(R.id.btnSubmit);
+<<<<<<< HEAD
         
         Button btnToggle = (Button) findViewById(R.id.turnOff);
         
+=======
+>>>>>>> origin/master
         btnNext.setOnClickListener(buttonBackListener);
         
         btnSet.setOnClickListener(buttonSetListener);
@@ -42,11 +55,14 @@ public void onCreate(Bundle savedInstanceState) {
         
         }
 
-
+       
+       	//TimePicker tpFirst = (TimePicker) findViewById(R.id.tpFirst);
+        //TimePicker tpSecond = (TimePicker) findViewById(R.id.tpSecond);
 
         public OnClickListener buttonSetListener = new OnClickListener() 
     	{
     		public void onClick(View v)
+<<<<<<< HEAD
     		{
     			Calendar calendar1 = Calendar.getInstance();
     			Calendar calendar2 = Calendar.getInstance();
@@ -85,9 +101,15 @@ public void onCreate(Bundle savedInstanceState) {
     			 updateFreq = 86400000;//24*60*60*1000;
     			alarmManager2.setRepeating(AlarmManager.RTC_WAKEUP, calendar2.getTimeInMillis(), updateFreq, alarmIntent);
     			
+=======
+    		{/*
+    			String strDateTime =" "+ tpFirst.getCurrentHour() + ":" + tpFirst.getCurrentMinute();
+
+                Toast.makeText(reminder.this, "User has selected " + strDateTime, Toast.LENGTH_LONG).show();
+
+                finish();*/
+>>>>>>> origin/master
     		}
-    			
-            
     	}; 
     	
     	public OnClickListener toggleButtonListener = new OnClickListener()

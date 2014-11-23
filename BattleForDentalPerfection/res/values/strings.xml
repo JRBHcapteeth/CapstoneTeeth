@@ -16,11 +16,16 @@
     <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">creditso to unlocko this charactero?</string>
     <string name="buttonCharBuyConfirmEng">Unlock</string><string name="buttonCharBuyConfirmSpn">Unlocko</string>
     <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Insufficiento creditos</string>
-    <string name="textHighScoreEng">High Score:</string><string name="textHighScoreSpn">Higho scoreo:</string>
+    <string name="textHighScoreEasyEng">High Score (Easy):</string><string name="textHighScoreEasySpn">Higho scoreo (Easyo):</string>
+    <string name="textHighScoreMediumEng">High Score (Medium):</string><string name="textHighScoreMediumSpn">Higho scoreo (Mediumo):</string>
+    <string name="textHighScoreHardEng">High Score (Hard):</string><string name="textHighScoreHardSpn">Higho scoreo (Hardo):</string>
     <string name="buttonDifficultyEasyEng">Easy</string><string name="buttonDifficultyEasySpn">Easyo</string>
     <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Mediumo</string>
     <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Hardo</string>
     <string name="buttonStartGameEng">Start Game!</string><string name="buttonStartGameSpn">Starto Gameo!</string>
+    <string name="gameOverTitleEng">Game Over</string><string name="gameOverTitleSpn">Game Overo</string>
+    <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Scoreo:</string>
+    <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OKo</string>
     
     <color name="colClear">#00000000</color>
     <color name="colGrey">#ddaaaaaa</color>
@@ -110,7 +115,4 @@
     <string name="charVillain8NameEng">Baddie8</string><string name="charVillain8NameSpn">El Baddo 8</string>
     <string name="charVillain8BioEng">He\'s the mean 8</string><string name="charVillain8BioSpn">Es el meano 8</string>
     <string name="charVillain8RepEng">He\'s a bad 8</string><string name="charVillain8RepSpn">Es un bado 8</string>
-   <string name="timerVal">00:00:00</string>
-    <string name="pauseButtonLabel">Pause</string>
-    <string name="startButtonLabel">Start</string>
 </resources>

@@ -15,10 +15,40 @@
         android:id="@+id/tableRow2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp" >
+        android:paddingTop="5dp" >
 
         <TextView
-            android:id="@+id/textViewHighScore"
+            android:id="@+id/textViewHighScoreEasy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="high score"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewHighScoreMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="high score"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewHighScoreHard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
@@ -31,7 +61,7 @@
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp" >
+        android:paddingTop="5dp" >
 
         <Button
             android:id="@+id/buttonDifficulty"
@@ -46,7 +76,7 @@
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp" >
+        android:paddingTop="5dp" >
 
         <Button
             android:id="@+id/buttonStartGame"
@@ -61,13 +91,13 @@
         android:id="@+id/tableRow4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp" >
+        android:paddingTop="5dp" >
 
         <Button
             android:id="@+id/buttonGameReturn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical"
             android:text="Button" />
 
     </TableRow>

@@ -1,5 +1,6 @@
 package com.example.battlefordentalperfection;
 
+<<<<<<< HEAD
 import java.util.Calendar;
 
 import android.app.Activity;
@@ -96,3 +97,8 @@ public class timer extends ActionBarActivity {
 	};
 
 }
+=======
+public class timer {
+
+}
+>>>>>>> origin/master
