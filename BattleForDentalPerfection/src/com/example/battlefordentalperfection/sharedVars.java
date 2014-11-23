@@ -1,5 +1,7 @@
 package com.example.battlefordentalperfection;
 
+import java.util.Calendar;
+
 import android.content.SharedPreferences;
 
 public class sharedVars {
@@ -34,6 +36,7 @@ public class sharedVars {
 	private static final String UNLOCKED_TEN = "UNLOCKED_TEN";
 	private static final String UNLOCKED_ELEVEN = "UNLOCKED_ELEVEN";
 	private static final String UNLOCKED_TWELVE = "UNLOCKED_TWELVE";
+	private static long calendar;
 	
 	static boolean getbIsEng()
 	{
@@ -161,5 +164,43 @@ public class sharedVars {
 	{
 		difficulty = saveFile.getInt(DIFFICULTY, 0);
 	}
+	
+	static void setTimer(Calendar cal, SharedPreferences saveFile)
+	{
+		calendar = cal.getTimeInMillis();
+		SharedPreferences.Editor editor = saveFile.edit();
+		editor.putLong("TIMER", calendar);
+		editor.commit();
+		
+	}
+	
+	static void loadTimer(SharedPreferences saveFile)
+	{
+		calendar = saveFile.getLong("TIMER", 0);
+	}
+	
+	
+	static boolean checkTimerUse(Calendar cal)
+	{
+		Calendar calen = Calendar.getInstance();
+		calen.setTimeInMillis(calendar);
+		calen.add(Calendar.HOUR, 8);
+		long time1 = calen.getTimeInMillis();
+		long time2 = cal.getTimeInMillis();
+		
+		if(time2 >= time1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+		
+		
+		
+	}
+	
 	
 }

@@ -19,18 +19,18 @@
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Set Notifications" />
 
-    <ToggleButton
-        android:id="@+id/tglRem"
+    <Button
+        android:id="@+id/turnOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ToggleButton" />
+        android:text="Turn Off" />
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Main Menu" />
     
     </TableLayout>

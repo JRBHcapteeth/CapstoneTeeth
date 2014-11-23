@@ -1,14 +1,19 @@
 package com.example.battlefordentalperfection;
 
+import java.util.Calendar;
+
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class timer extends Activity {
+public class timer extends ActionBarActivity {
 
 	private Button startButton;
 	private Button pauseButton;
@@ -35,7 +40,11 @@ public class timer extends Activity {
 		startButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
+				SharedPreferences saveFile = timer.this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
 				startTime = SystemClock.uptimeMillis();
+				Calendar cal = Calendar.getInstance();
+		        cal.setTimeInMillis(System.currentTimeMillis());
+		        sharedVars.setTimer(cal, saveFile);
 				startButton.setClickable(false);
 				pauseButton.setClickable(true);
 				customHandler.postDelayed(updateTimerThread, 0);
@@ -44,13 +53,13 @@ public class timer extends Activity {
 		});
 
 		pauseButton = (Button) findViewById(R.id.pauseButton);
-		
+		pauseButton.setText("Stop");
 		pauseButton.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View view) {
 			
 				timeSwapBuff += timeInMilliseconds;
-				startButton.setClickable(true);
+				startButton.setClickable(false);
 				pauseButton.setClickable(false);
 				customHandler.removeCallbacks(updateTimerThread);
 
@@ -69,16 +78,18 @@ public class timer extends Activity {
 
 			int secs = (int) (updatedTime / 1000);
 			int mins = secs / 60;
+			
+			secs = secs % 60;
+			
+			int milliseconds = (int) (updatedTime % 1000);
+			timerValue.setText("" + mins + ":"
+					+ String.format("%02d", secs) + ":"
+					+ String.format("%03d", milliseconds));
 			if(mins == 2 && secs == 0)
 			{
 				Thread.currentThread().interrupt();
 				return;
 			}
-			secs = secs % 60;
-			int milliseconds = (int) (updatedTime % 1000);
-			timerValue.setText("" + mins + ":"
-					+ String.format("%02d", secs) + ":"
-					+ String.format("%03d", milliseconds));
 			customHandler.postDelayed(this, 0);
 		}
 
