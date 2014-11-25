@@ -42,6 +42,10 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private int friendlyOffset;//spacing of friendly objects from a hostile object
 	private int activeFriendly = 9;//which friendly object is being activated
 	
+	String sCurrentHP;//string to show current hp
+	String sCurrentScore;//string to show current hp
+	String sCurrentOverdose;//string to show current hp
+	
 	private boolean gameover = true; //true if game done, false if running
 	private boolean playerHasTapped = false;//game doesnt start till screen is tapped
 	private boolean isHit = false;//if player has hit an objeect
@@ -71,6 +75,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	
 	//paint objects used for drawing
 	private Paint backgroundPaint; // Paint used to clear the drawing area
+	private Paint textboxPaint; // Paint used to encapsulate text
 	private Paint testPaint;//DEBUG PAINT FOR PLAYER HITBOX
 	private Paint textPaint;//DEBUG PAINT FOR TEXT
 
@@ -139,7 +144,8 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         playerUp = BitmapFactory.decodeResource(getResources(), R.drawable.right);
         playerDown = BitmapFactory.decodeResource(getResources(), R.drawable.left);
 
-		backgroundPaint = new Paint(); // Paint for drawing the target
+		textboxPaint = new Paint(); // Paint for drawing boxes around text
+		backgroundPaint = new Paint(); // Paint for clearing the background
 	    testPaint = new Paint(); // Paint for drawing
 	    textPaint = new Paint(); //paint for text
 		
@@ -175,11 +181,12 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 
 		playerMathXVal = screenWidth/2;//starts player object in center of screen
 		
-		textPaint.setTextSize(w / 20); // text size 1/20 of screen width
+		textPaint.setTextSize(w / 15); // text size 1/15 of screen width
 		textPaint.setAntiAlias(true); // smoothes the text
-		textPaint.setColor(Color.CYAN);
+		textPaint.setColor(Color.WHITE);
 	      
-		backgroundPaint.setColor(Color.WHITE); // set background color
+		backgroundPaint.setColor(Color.RED); // set background color
+		textboxPaint.setColor(Color.BLACK); // set background color
 		
 		//creates an easy hostile for the player to get used to the controls
 		hostileObjArr.get(0).setPosYMin(screenHeight-hostileWidth);
@@ -603,78 +610,38 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         else
         	drawBitmap(canvas, playerUp, false, 0);
         
-        //DEBUG STRINGS DELETE BEFORE DELIVERY
+        /*
+        //DEBUG STRINGS EXAMPLE IF NEEDED
         String sHp = "HP: " + Integer.valueOf(hp);
-        String sScore = "Score: " + Integer.valueOf(score);
-        String sOD = "Overdose: " + Integer.valueOf(overdose);/*
-        String sdelta = "Delta: " + Double.valueOf(delta);
-        String friendlyOney = "friendly1y: " + Integer.valueOf(friendObjArr.get(1).getPosY());
-        String friendlyTwoy = "friendly2y: " + Integer.valueOf(friendObjArr.get(2).getPosY());
-        String friendlyOnex = "friendly1x: " + Integer.valueOf(friendObjArr.get(1).getPosX());
-        String friendlyTwox = "friendly2x: " + Integer.valueOf(friendObjArr.get(2).getPosX());
-        String friendlyRect1pmx = "friendlyRect1PosX-r: " + String.valueOf(friendObjArr.get(1).getPosX() - radius);
-        String friendlyRect1pmy = "friendlyRect1PosY-r: " + String.valueOf(friendObjArr.get(1).getPosY() - radius);
-        String friendlyRect1ppx = "friendlyRect1PosX+r: " + String.valueOf(friendObjArr.get(1).getPosX() + radius);
-        String friendlyRect1ppy = "friendlyRect1PosY+r: " + String.valueOf(friendObjArr.get(1).getPosY() + radius);
-        String friendlyRectr = "friendlyRect2*r: " + String.valueOf(2*radius);
-        String sHit = "isHit: " + isHit; 
-        String sCheck = "currentCheck: " + Integer.valueOf(currentCheck);
-        String hostile1near = "hostile1near: " + Integer.valueOf(hostileObjArr.get(0).getImageRef())+" "+hostileObjArr.get(0).getIsNear();
-        String hostile2near = "hostile2near: " + Integer.valueOf(hostileObjArr.get(1).getImageRef())+" "+hostileObjArr.get(1).getIsNear();
-        String hostile3near = "hostile3near: " + Integer.valueOf(hostileObjArr.get(2).getImageRef())+" "+hostileObjArr.get(2).getIsNear();
-        String hostile4near = "hostile4near: " + Integer.valueOf(hostileObjArr.get(3).getImageRef())+" "+hostileObjArr.get(3).getIsNear();
-        String hostile5near = "hostile5near: " + Integer.valueOf(hostileObjArr.get(4).getImageRef())+" "+hostileObjArr.get(4).getIsNear();
-        String sHitTime = "gotHitTime: " + Double.valueOf(gotHitTime);
-        String sHitTimeDiff = "TimeDiff: " + Double.valueOf((System.currentTimeMillis() / 1000) - gotHitTime);
-        String sTimes = "elapsedTimeInSec: " + Double.toString(elapsedTimeInSec);
-        String sTimeInterval = "timeInterval: " + Double.toString(timeInterval);
-        String sTimeBuff = "timeBuffer: " + Double.toString(timeBuffer);
-        String hostileOne = "hostile1: " + String.valueOf(hostileObjArr.get(0).getIsActive()) +" "+Integer.valueOf(hostileObjArr.get(0).getImageRef());
-        String hostileTwo = "hostile2: " + String.valueOf(hostileObjArr.get(1).getIsActive()) +" "+Integer.valueOf(hostileObjArr.get(1).getImageRef());
-        String hostileThree = "hostile3: " + String.valueOf(hostileObjArr.get(2).getIsActive()) +" "+Integer.valueOf(hostileObjArr.get(2).getImageRef());
-        String hostileFour = "hostile4: " + String.valueOf(hostileObjArr.get(3).getIsActive()) +" "+Integer.valueOf(hostileObjArr.get(3).getImageRef());
-        String hostileFive = "hostile5: " + String.valueOf(hostileObjArr.get(4).getIsActive()) +" "+Integer.valueOf(hostileObjArr.get(4).getImageRef());
-        String hostileOnePos = "hostile1POS: " + Integer.valueOf(hostileObjArr.get(0).getPosYMin());
-        String hostileTwoPos = "hostile2POS: " + Integer.valueOf(hostileObjArr.get(1).getPosYMin());
-        String hostileThreePos = "hostile3POS: " + Integer.valueOf(hostileObjArr.get(2).getPosYMin());
-        String hostileFourPos = "hostile4POS: " + Integer.valueOf(hostileObjArr.get(3).getPosYMin());
-        String hostileFivePos = "hostile5POS: " + Integer.valueOf(hostileObjArr.get(4).getPosYMin());
+        canvas.drawText(sHp, 5, 30, textPaint);
+        */
         
-        //DEBUG STRINGS DELETE BEFORE DELIVERY
-        */canvas.drawText(sHp, 5, 30, textPaint);
-        canvas.drawText(sScore, 5, 60, textPaint);
-        canvas.drawText(sOD, 5, 90, textPaint);/*
-        canvas.drawText(sdelta, 5, 150, textPaint);
-        canvas.drawText(sTimeBuff, 5, 90, textPaint);
-        canvas.drawText(friendlyOnex, 5, 90, textPaint);
-        canvas.drawText(friendlyOney, 5, 120, textPaint);
-        canvas.drawText(friendlyRect1pmx, 5, 150, textPaint);
-        canvas.drawText(friendlyRect1pmy, 5, 180, textPaint);
-        canvas.drawText(friendlyRect1ppx, 5, 210, textPaint);
-        canvas.drawText(friendlyRect1ppy, 5, 240, textPaint);
-        canvas.drawText(friendlyRectr, 5, 270, textPaint);
-        canvas.drawText(sHit, 5, 50, textPaint);
-        canvas.drawText(sCheck, 5, 80, textPaint);
-        canvas.drawText(hostile1near, 5, 110, textPaint);
-        canvas.drawText(hostile2near, 5, 140, textPaint);
-        canvas.drawText(hostile3near, 5, 170, textPaint);
-        canvas.drawText(hostile4near, 5, 200, textPaint);
-        canvas.drawText(hostile5near, 5, 230, textPaint);
-        canvas.drawText(sHitTime, 5, 260, textPaint);
-        canvas.drawText(sHitTimeDiff, 5, 290, textPaint);
-        canvas.drawText(sTimes, 5, 200, textPaint);
-        canvas.drawText(sTimeInterval, 5, 230, textPaint);
-        canvas.drawText(sTimeBuff, 5, 260, textPaint);
-        canvas.drawText(hostileOne, 5, 300, textPaint);
-        canvas.drawText(hostileTwo, 5, 330, textPaint);
-        canvas.drawText(hostileThree, 5, 360, textPaint);
-        canvas.drawText(hostileFour, 5, 390, textPaint);
-        canvas.drawText(hostileFive, 5, 420, textPaint);
-        canvas.drawText(hostileOnePos, 5, 500, textPaint);
-        canvas.drawText(hostileTwoPos, 5, 530, textPaint);
-        canvas.drawText(hostileThreePos, 5, 560, textPaint);
-        canvas.drawText(hostileFourPos, 5, 590, textPaint);
-        canvas.drawText(hostileFivePos, 5, 620, textPaint);*/
+        //draws rectangle for hp and score text
+        canvas.drawRect(screenWidth - (screenWidth / 12), 0, canvas.getWidth(), canvas.getHeight(), 
+        		textboxPaint);
+        //draws rectangle for overdose meter and brush message
+        canvas.drawRect(0, 0, screenWidth / 12, canvas.getHeight(), 
+        		textboxPaint);
+
+        //saves the angle of the canvas for restoration later
+        canvas.save();
+        //rotates canvas
+        canvas.rotate(90,screenWidth/2, screenHeight/2);
+
+        //Creation of strings to be used
+        sCurrentHP = "HP: " + Integer.valueOf(hp);
+        sCurrentScore = "Score: " + Integer.valueOf(score);
+        sCurrentOverdose = "Foods Eaten: " + Integer.valueOf(overdose) +" "+"/5";
+        //Displays warning when overdose becomes critical
+        if(overdose >=4)
+        	sCurrentOverdose += " Need to brush soon!"; 
+        //draws text 
+        canvas.drawText(sCurrentHP, -screenWidth/5, screenHeight/5, textPaint);
+        canvas.drawText(sCurrentScore, screenWidth/2, screenHeight/5, textPaint);
+        canvas.drawText(sCurrentOverdose, -screenWidth/5, (float) (screenWidth*1.2), textPaint);
+
+        //restores canvas to previous orientation
+        canvas.restore();
         
         //circle representing players hitbox
         //DEBUG IN NATURE DELETE BEFORE DELIVERY

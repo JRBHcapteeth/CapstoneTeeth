@@ -1,9 +1,7 @@
 package com.example.battlefordentalperfection;
 
-<<<<<<< HEAD
 import java.util.Calendar;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -97,8 +95,3 @@ public class timer extends ActionBarActivity {
 	};
 
 }
-=======
-public class timer {
-
-}
->>>>>>> origin/master

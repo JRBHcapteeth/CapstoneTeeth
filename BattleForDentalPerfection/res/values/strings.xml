@@ -26,93 +26,115 @@
     <string name="gameOverTitleEng">Game Over</string><string name="gameOverTitleSpn">Game Overo</string>
     <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Scoreo:</string>
     <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OKo</string>
+    <string name="timerVal">0</string>
+    <string name="startButtonLabel">Start</string>
+    <string name="pauseButtonLabel">Pause</string>
     
     <color name="colClear">#00000000</color>
     <color name="colGrey">#ddaaaaaa</color>
     
-    <string name="charHero1NameEng">Hero</string><string name="charHero1NameSpn">Heroe</string>
-    <string name="charHero1BioEng">He\'s the best</string><string name="charHero1BioSpn">Es el mejor</string>
-    <string name="charHero1RepEng">He\'s a dentist</string><string name="charHero1RepSpn">Es un dentista</string>
+    <string name="charHero1NameEng">Dental Perfectionman</string><string name="charHero1NameSpn">Dental Perfectionman</string>
+    <string name="charHero1BioEng">Dental Perfectionman has a passion for helping people.  
+        Bad dental hygiene can lead to many other issues.  
+        His goal is to educate and fight against bad dental hygiene.  
+        He fights against Dr. Racuza and his minions to help people take care of themselves and their teeth.</string>
+    <string name="charHero1BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero1RepEng">He\'s a dentist</string>
+    <string name="charHero1RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charHero2NameEng">Heroine</string><string name="charHero2NameSpn">Heroina</string>
-    <string name="charHero2BioEng">She\'s amazing. So amazing she has a big picture.</string><string name="charHero2BioSpn">Es increible</string>
-    <string name="charHero2RepEng">She\'s a orthodontist</string><string name="charHero2RepSpn">Ella es un orthodoncista</string>
+    <string name="charHero2NameEng">Perla Blanca</string><string name="charHero2NameSpn">Perla Blanca</string>
+    <string name="charHero2BioEng">Perla Blanca is the wife of Dental Perfectionman.  
+        Together, they fight against bad dental hygiene. 
+        She fights with Dental Perfectionman, against Dr. Racuza and his minions, 
+        	to help people take care of themselves and their teeth. </string>
+    <string name="charHero2BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero2RepEng">She\'s a dental hygienist</string>
+    <string name="charHero2RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charHero3NameEng">Hero3</string><string name="charHero3NameSpn">Heroe3</string>
-    <string name="charHero3BioEng">He\'s the 3</string><string name="charHero3BioSpn">Es el 3</string>
-    <string name="charHero3RepEng">He\'s a 3</string><string name="charHero3RepSpn">Es un 3</string>
+    <string name="charHero3NameEng">Ortho</string><string name="charHero3NameSpn">Ortho</string>
+    <string name="charHero3BioEng">He and Dental Perfectionman were childhood friends.  
+        He teams up with Dental Perfectionman and Perla Blanca to help fight against bad dental hygiene. 
+        He fights with Dental Perfectionman and Perla Blanca, against Dr. Racuza and his minions, 
+        	to help people take care of themselves and their teeth. </string>
+    <string name="charHero3BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero3RepEng">He\'s an orthodontist</string>
+    <string name="charHero3RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charHero4NameEng">Hero4</string><string name="charHero4NameSpn">Heroe4</string>
-    <string name="charHero4BioEng">He\'s the 4</string><string name="charHero4BioSpn">Es el 4</string>
-    <string name="charHero4RepEng">He\'s a 4</string><string name="charHero4RepSpn">Es un 4</string>
+    <string name="charHero4NameEng">Anti</string><string name="charHero4NameSpn">Anti</string>
+    <string name="charHero4BioEng">Anti is the pet of Dental Perfectionman and Perla Blanca.  
+        He fights bad dental hygiene with his owners.  
+        He dispenses toothpaste to do his part to fight dental decay.</string>
+    <string name="charHero4BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero4RepEng">He\'s a Chihuahua</string>
+    <string name="charHero4RepSpn">I NEED A TRANSLATION</string>
     
     
     
-    <string name="charVillain1NameEng">Baddie1</string><string name="charVillain1NameSpn">El Baddo 1</string>
-    <string name="charVillain1BioEng">He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        He\'s the mean 1. He has a lot of text.
-        </string><string name="charVillain1BioSpn">Es el meano 1</string>
-    <string name="charVillain1RepEng">He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        He\'s a bad 1. So bad he makes the screen scroll.
-        </string><string name="charVillain1RepSpn">Es un bado 1</string>
+    <string name="charVillain1NameEng">Plaque Attack</string><string name="charVillain1NameSpn">Plaque Attack</string>
+    <string name="charVillain1BioEng">Plaque Attack has a plaque problem.
+        He also has anger problems because of having been bullied.  
+        His anger gets him in a lot of trouble.</string>
+    <string name="charVillain1BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain1RepEng">Plaque builds up as a result of not brushing your teeth.</string>
+    <string name="charVillain1RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain2NameEng">Baddie2</string><string name="charVillain2NameSpn">El Baddo 2</string>
-    <string name="charVillain2BioEng">He\'s the mean 2</string><string name="charVillain2BioSpn">Es el meano 2</string>
-    <string name="charVillain2RepEng">He\'s a bad 2</string><string name="charVillain2RepSpn">Es un bado 2</string>
+    <string name="charVillain2NameEng">Sweet Tooth Sam</string><string name="charVillain2NameSpn">Sweet Tooth Sam</string>
+    <string name="charVillain2BioEng">Sweet Tooth Sam has a horrible diet.  
+        He eats whatever he can get his hands on!  
+        He never brushes his teeth.</string>
+    <string name="charVillain2BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain2RepEng">Acid is created when plaque and complex carbs and sugars mix from all the bad foods that he eats.</string>
+    <string name="charVillain2RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain3NameEng">Baddie3</string><string name="charVillain3NameSpn">El Baddo 3</string>
-    <string name="charVillain3BioEng">He\'s the mean 3</string><string name="charVillain3BioSpn">Es el meano 3</string>
-    <string name="charVillain3RepEng">He\'s a bad 3</string><string name="charVillain3RepSpn">Es un bado 3</string>
+    <string name="charVillain3NameEng">aCIDic</string><string name="charVillain3NameSpn">aCIDic</string>
+    <string name="charVillain3BioEng">aCIDic is a social media and video game junky and is also a hacker.  
+        He has a very abrasive or caustic personality.  
+        He does not know how to make friends or share.</string>
+    <string name="charVillain3BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain3RepEng">Acid attacks teeth to break them down and cause cavities.</string>
+    <string name="charVillain3RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain4NameEng">Baddie4</string><string name="charVillain4NameSpn">El Baddo 4</string>
-    <string name="charVillain4BioEng">He\'s the mean 4</string><string name="charVillain4BioSpn">Es el meano 4</string>
-    <string name="charVillain4RepEng">He\'s a bad 4</string><string name="charVillain4RepSpn">Es un bado 4</string>
+    <string name="charVillain4NameEng">Cathy Cavity</string><string name="charVillain4NameSpn">Cathy Cavity</string>
+    <string name="charVillain4BioEng">Cathy Cavity has a mouth full of cavities. 
+        She is a kleptomaniac and steals whatever she can get her hands on.  </string>
+    <string name="charVillain4BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain4RepEng">Cavities are holes in yo teeth.</string>
+    <string name="charVillain4RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain5NameEng">Baddie5</string><string name="charVillain5NameSpn">El Baddo 5</string>
-    <string name="charVillain5BioEng">He\'s the mean 5</string><string name="charVillain5BioSpn">Es el meano 5</string>
-    <string name="charVillain5RepEng">He\'s a bad 5</string><string name="charVillain5RepSpn">Es un bado 5</string>
+    <string name="charVillain5NameEng">Ginger Vitis</string><string name="charVillain5NameSpn">Ginger Vitis</string>
+    <string name="charVillain5BioEng">She is a ginger who uses her looks to get what she wants.  
+        She is a perfect ten until she opens her mouth.  
+        Beauty is only skin deep.  
+        She is perfect on the outside, but not on the inside.  </string>
+    <string name="charVillain5BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain5RepEng">She has gingivitis, which is bleeding of the gums. </string>
+    <string name="charVillain5RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain6NameEng">Baddie6</string><string name="charVillain6NameSpn">El Baddo 6</string>
-    <string name="charVillain6BioEng">He\'s the mean 6</string><string name="charVillain6BioSpn">Es el meano 6</string>
-    <string name="charVillain6RepEng">He\'s a bad 6</string><string name="charVillain6RepSpn">Es un bado 6</string>
+    <string name="charVillain6NameEng">Foul Mouth Frank</string><string name="charVillain6NameSpn">Foul Mouth Frank</string>
+    <string name="charVillain6BioEng">He is a homeless vet who has a drug and alcohol problem.  
+        He will steal and hurt people in order to keep getting his fix.  </string>
+    <string name="charVillain6BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain6RepEng">Foul Mouth Frank has halitosis.  
+        Extremely bad breath!</string>
+    <string name="charVillain6RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain7NameEng">Baddie7</string><string name="charVillain7NameSpn">El Baddo 7</string>
-    <string name="charVillain7BioEng">He\'s the mean 7</string><string name="charVillain7BioSpn">Es el meano 7</string>
-    <string name="charVillain7RepEng">He\'s a bad 7</string><string name="charVillain7RepSpn">Es un bado 7</string>
+    <string name="charVillain7NameEng">Roothless Toothless</string><string name="charVillain7NameSpn">Roothless Toothless</string>
+    <string name="charVillain7BioEng">He dropped out of school and doesn’t know how to spell correctly.   
+        He misspells his name with two o’s instead of a u.  
+        He is so big and strong because he shoots steroids.  
+        The steroids cause him to have ‘roid rage, impotence and balding.  </string>
+    <string name="charVillain7BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain7RepEng">Roothless Toothless has the final stage of dental decline, which is tooth loss.  
+        Once we lose our teeth, we cannot fix the damage. </string>
+    <string name="charVillain7RepSpn">I NEED A TRANSLATION</string>
     
-    <string name="charVillain8NameEng">Baddie8</string><string name="charVillain8NameSpn">El Baddo 8</string>
-    <string name="charVillain8BioEng">He\'s the mean 8</string><string name="charVillain8BioSpn">Es el meano 8</string>
-    <string name="charVillain8RepEng">He\'s a bad 8</string><string name="charVillain8RepSpn">Es un bado 8</string>
+    <string name="charVillain8NameEng">Dr. Racuza</string><string name="charVillain8NameSpn">Dr. Racuza</string>
+    <string name="charVillain8BioEng">Dr. Racuza is a mad scientist who the seven villains team up with.  
+        He invents a substance that is highly addictive and rots out the teeth very fast.  
+        He infuses that substance into candy, sodas, drugs and alcohol, which are already bad for us and our teeth.  
+        The villains give those things to people, without them knowing.  
+        They grow an army of people who are subservient to them, to do their bidding in order to keep getting their fix.  </string>
+    <string name="charVillain8BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain8RepEng">He\'s a bad one.</string>
+    <string name="charVillain8RepSpn">I NEED A TRANSLATION</string>
 </resources>

@@ -29,12 +29,15 @@
          	android:label="@string/app_name"></activity>
      	<activity android:name=".gameBase" 
          	android:label="@string/app_name"></activity>
+     	<receiver android:name="com.example.battlefordentalperfection.myAlarmReceiver"></receiver>
      	<activity android:name=".reminder" 
          	android:label="@string/app_name"></activity>
      	<activity android:name=".gameSplash" 
          	android:label="@string/app_name"></activity>
      	<activity android:name=".game" 
 			android:screenOrientation="landscape"
+         	android:label="@string/app_name"></activity>
+     	<activity android:name=".timer" 
          	android:label="@string/app_name"></activity>
     </application>
 
