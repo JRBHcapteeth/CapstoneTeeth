@@ -77,13 +77,13 @@ public void onCreate(Bundle savedInstanceState) {
     			
     			alarmIntent = PendingIntent.getBroadcast(reminder.this, 1234567, new Intent(reminder.this, myAlarmReceiver.class), 0);
     			AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);                  
-    			long updateFreq = 86400000;//24*60*60*1000;
+    			long updateFreq = 86400000/2;//24*60*60*1000;
     			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar1.getTimeInMillis(), updateFreq, alarmIntent);
     			
     			//alarmIntent = PendingIntent.getBroadcast(reminder.this, 1234567, new Intent(reminder.this, myAlarmReceiver.class), 0);
-    			AlarmManager alarmManager2 = (AlarmManager)getSystemService(ALARM_SERVICE);                  
-    			 updateFreq = 86400000;//24*60*60*1000;
-    			alarmManager2.setRepeating(AlarmManager.RTC_WAKEUP, calendar2.getTimeInMillis(), updateFreq, alarmIntent);
+    			//AlarmManager alarmManager2 = (AlarmManager)getSystemService(ALARM_SERVICE);                  
+    		    //updateFreq = 86400000;//24*60*60*1000;
+    			//alarmManager2.setRepeating(AlarmManager.RTC_WAKEUP, calendar2.getTimeInMillis(), updateFreq, alarmIntent);
     			
     		}
     			
