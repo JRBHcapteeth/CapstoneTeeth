@@ -117,9 +117,20 @@ public class gameSplash extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
+			Button buttonStart = (Button) findViewById(R.id.buttonStartGame);
+			if (sharedVars.getbIsEng())
+				buttonStart.setText(getString(R.string.buttonLoadingEng));
+			else
+				buttonStart.setText(getString(R.string.buttonLoadingSpn));
+			
 			Intent startGame = 
 					new Intent(gameSplash.this, gameBase.class);
 			startActivity(startGame);
+			
+			if (sharedVars.getbIsEng())
+				buttonStart.setText(getString(R.string.buttonStartGameEng));
+			else
+				buttonStart.setText(getString(R.string.buttonStartGameSpn));
 		}
 	};
 	

@@ -25,7 +25,7 @@
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/icon" />
+                android:src="@drawable/hero1" />
 
             <ImageButton
                 android:id="@+id/heroButton2"
@@ -43,7 +43,7 @@
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/hero1" />
+                android:src="@drawable/hero3" />
 
         </TableRow>
 
@@ -118,19 +118,19 @@
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vill3" />
+                android:src="@drawable/vill4" />
 
             <ImageButton
-                android:id="@+id/villainButton5"
+                android:id="@+id/villainButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vill4" />
+                android:src="@drawable/vill3" />
 
             <ImageButton
-                android:id="@+id/villainButton3"
+                android:id="@+id/villainButton5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
@@ -153,7 +153,7 @@
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vill6" />
+                android:src="@drawable/vill7" />
 
             <ImageButton
                 android:id="@+id/villainButton6"
@@ -162,7 +162,7 @@
                 android:background="@color/colClear"
                 android:padding="2dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vill7" />
+                android:src="@drawable/vill6" />
 
         </TableRow>
 
@@ -183,6 +183,32 @@
 
         </TableRow>
 
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textViewBiosCredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="credit : 999"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Button
+                android:id="@+id/freeshit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+        </TableRow>
     </TableLayout>
 
     <TableLayout

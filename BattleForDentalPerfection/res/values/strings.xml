@@ -10,9 +10,11 @@
     <string name="buttonBiosEng">Biographies</string><string name="buttonBiosSingEng">Biography</string><string name="buttonBiosSpn">Biografia</string>
     <string name="buttonRepresentEng">Representation</string><string name="buttonRepresentSpn">Representacion</string>
     <string name="buttonReturnEng">Main Menu</string><string name="buttonReturnSpn">Menu Principal</string>
+    <string name="biosCreditEng">Total credits:</string><string name="biosCreditSpn">Total creditso:</string>
+    <string name="buttonLoadingEng">Loading...</string><string name="buttonLoadingSpn">El Loading...</string>
     <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
-    <string name="buttonCharLockedEng">Character locked</string><string name="buttonCharLockedSpn">Charactero locked-o</string>
-    <string name="buttonCharBuyMsgOneEng">Spend 10 of your</string><string name="buttonCharBuyMsgOneSpn">Spendo 10o of youro</string>
+    <string name="buttonCharLockedEng">Character locked</string><string name="buttonCharLockedSpn">Charactero lockedo</string>
+    <string name="buttonCharBuyMsgOneEng">Spend 10 of your</string><string name="buttonCharBuyMsgOneSpn">Spendo 10 of your</string>
     <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">creditso to unlocko this charactero?</string>
     <string name="buttonCharBuyConfirmEng">Unlock</string><string name="buttonCharBuyConfirmSpn">Unlocko</string>
     <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Insufficiento creditos</string>

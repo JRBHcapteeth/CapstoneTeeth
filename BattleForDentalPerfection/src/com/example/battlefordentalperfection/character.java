@@ -72,35 +72,35 @@ public class character extends ActionBarActivity{
 		Profile heroTwo = new Profile("hero2body.png",(getString(R.string.charHero2NameEng)),(getString(R.string.charHero2BioEng)), 
 				(getString(R.string.charHero2RepEng)),(getString(R.string.charHero2NameSpn)), 
 				(getString(R.string.charHero2BioSpn)), (getString(R.string.charHero2RepSpn)));
-		Profile heroThree = new Profile("hero1body.png",(getString(R.string.charHero3NameEng)),(getString(R.string.charHero3BioEng)), 
+		Profile heroThree = new Profile("hero3body.png",(getString(R.string.charHero3NameEng)),(getString(R.string.charHero3BioEng)), 
 				(getString(R.string.charHero3RepEng)),(getString(R.string.charHero3NameSpn)), 
 				(getString(R.string.charHero3BioSpn)), (getString(R.string.charHero3RepSpn)));
-		Profile heroFour = new Profile("hero1body.png",(getString(R.string.charHero4NameEng)),(getString(R.string.charHero4BioEng)), 
+		Profile heroFour = new Profile("hero4body.png",(getString(R.string.charHero4NameEng)),(getString(R.string.charHero4BioEng)), 
 				(getString(R.string.charHero4RepEng)),(getString(R.string.charHero4NameSpn)), 
 				(getString(R.string.charHero4BioSpn)), (getString(R.string.charHero4RepSpn)));
 		
 		Profile villainOne = new Profile("vill1body.png",(getString(R.string.charVillain1NameEng)),(getString(R.string.charVillain1BioEng)), 
 				(getString(R.string.charVillain1RepEng)),(getString(R.string.charVillain1NameSpn)), 
 				(getString(R.string.charVillain1BioSpn)), (getString(R.string.charVillain1RepSpn)));
-		Profile villainTwo = new Profile("hero1body.png",(getString(R.string.charVillain2NameEng)),(getString(R.string.charVillain2BioEng)), 
+		Profile villainTwo = new Profile("vill2body.png",(getString(R.string.charVillain2NameEng)),(getString(R.string.charVillain2BioEng)), 
 				(getString(R.string.charVillain2RepEng)),(getString(R.string.charVillain2NameSpn)), 
 				(getString(R.string.charVillain2BioSpn)), (getString(R.string.charVillain2RepSpn)));
-		Profile villainThree = new Profile("hero1body.png",(getString(R.string.charVillain3NameEng)),(getString(R.string.charVillain3BioEng)), 
+		Profile villainThree = new Profile("vill3body.png",(getString(R.string.charVillain3NameEng)),(getString(R.string.charVillain3BioEng)), 
 				(getString(R.string.charVillain3RepEng)),(getString(R.string.charVillain3NameSpn)), 
 				(getString(R.string.charVillain3BioSpn)), (getString(R.string.charVillain3RepSpn)));
-		Profile villainFour = new Profile("hero1body.png",(getString(R.string.charVillain4NameEng)),(getString(R.string.charVillain4BioEng)), 
+		Profile villainFour = new Profile("vill4body.png",(getString(R.string.charVillain4NameEng)),(getString(R.string.charVillain4BioEng)), 
 				(getString(R.string.charVillain4RepEng)),(getString(R.string.charVillain4NameSpn)), 
 				(getString(R.string.charVillain4BioSpn)), (getString(R.string.charVillain4RepSpn)));
-		Profile villainFive = new Profile("hero1body.png",(getString(R.string.charVillain5NameEng)),(getString(R.string.charVillain5BioEng)), 
+		Profile villainFive = new Profile("vill5body.png",(getString(R.string.charVillain5NameEng)),(getString(R.string.charVillain5BioEng)), 
 				(getString(R.string.charVillain5RepEng)),(getString(R.string.charVillain5NameSpn)), 
 				(getString(R.string.charVillain5BioSpn)), (getString(R.string.charVillain5RepSpn)));
-		Profile villainSix = new Profile("hero1body.png",(getString(R.string.charVillain6NameEng)),(getString(R.string.charVillain6BioEng)), 
+		Profile villainSix = new Profile("vill6body.png",(getString(R.string.charVillain6NameEng)),(getString(R.string.charVillain6BioEng)), 
 				(getString(R.string.charVillain6RepEng)),(getString(R.string.charVillain6NameSpn)), 
 				(getString(R.string.charVillain6BioSpn)), (getString(R.string.charVillain6RepSpn)));
-		Profile villainSeven = new Profile("hero1body.png",(getString(R.string.charVillain7NameEng)),(getString(R.string.charVillain7BioEng)), 
+		Profile villainSeven = new Profile("vill7body.png",(getString(R.string.charVillain7NameEng)),(getString(R.string.charVillain7BioEng)), 
 				(getString(R.string.charVillain7RepEng)),(getString(R.string.charVillain7NameSpn)), 
 				(getString(R.string.charVillain7BioSpn)), (getString(R.string.charVillain7RepSpn)));
-		Profile villainEight = new Profile("hero1body.png",(getString(R.string.charVillain8NameEng)),(getString(R.string.charVillain8BioEng)), 
+		Profile villainEight = new Profile("vill8body.png",(getString(R.string.charVillain8NameEng)),(getString(R.string.charVillain8BioEng)), 
 				(getString(R.string.charVillain8RepEng)),(getString(R.string.charVillain8NameSpn)), 
 				(getString(R.string.charVillain8BioSpn)), (getString(R.string.charVillain8RepSpn)));
 		

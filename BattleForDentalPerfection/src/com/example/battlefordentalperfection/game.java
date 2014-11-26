@@ -67,7 +67,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private Bitmap junkOne, junkTwo, junkThree, junkFour, junkFive, junkSix;
 	private Bitmap foodOne, foodTwo, foodThree;
 	private Bitmap dentalOne, dentalTwo;
-	private Bitmap playerUp, playerDown;
+	private Bitmap whiteD, whiteU, lightD, lightU, medD, medU, highD, highU;
 	
 	//arraylists containing all objects
 	private ArrayList<friendObj> friendObjArr = new ArrayList<friendObj>(); //pos 0 = player, others are dental/food products
@@ -134,15 +134,21 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         junkFive = BitmapFactory.decodeResource(getResources(), R.drawable.vill5);
         junkSix = BitmapFactory.decodeResource(getResources(), R.drawable.vill6);
         
-        foodOne = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
-        foodTwo = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
-        foodThree = BitmapFactory.decodeResource(getResources(), R.drawable.hero1);
+        foodOne = BitmapFactory.decodeResource(getResources(), R.drawable.food1);
+        foodTwo = BitmapFactory.decodeResource(getResources(), R.drawable.food2);
+        foodThree = BitmapFactory.decodeResource(getResources(), R.drawable.food3);
 
-        dentalOne = BitmapFactory.decodeResource(getResources(), R.drawable.hero2);
-        dentalTwo = BitmapFactory.decodeResource(getResources(), R.drawable.hero2);
+        dentalOne = BitmapFactory.decodeResource(getResources(), R.drawable.dental1);
+        dentalTwo = BitmapFactory.decodeResource(getResources(), R.drawable.dental2);
         
-        playerUp = BitmapFactory.decodeResource(getResources(), R.drawable.right);
-        playerDown = BitmapFactory.decodeResource(getResources(), R.drawable.left);
+        whiteD = BitmapFactory.decodeResource(getResources(), R.drawable.whited);
+        whiteU = BitmapFactory.decodeResource(getResources(), R.drawable.whiteu);
+        lightD = BitmapFactory.decodeResource(getResources(), R.drawable.lightd);
+        lightU = BitmapFactory.decodeResource(getResources(), R.drawable.lightu);
+        medD = BitmapFactory.decodeResource(getResources(), R.drawable.medd);
+        medU = BitmapFactory.decodeResource(getResources(), R.drawable.medu);
+        highD = BitmapFactory.decodeResource(getResources(), R.drawable.highd);
+        highU = BitmapFactory.decodeResource(getResources(), R.drawable.highu);
 
 		textboxPaint = new Paint(); // Paint for drawing boxes around text
 		backgroundPaint = new Paint(); // Paint for clearing the background
@@ -471,7 +477,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 				isHit = friendObjArr.get(0).getPlayerCol1030().pointCompareFriendly(friendObjArr.get(x), 2*radius);
 			}//end of if
 			
-			//if player hits an object sand the pbject has not given its benefir yet...
+			//if player hits an object sand the object has not given its benefit yet...
 			if(isHit && !friendObjArr.get(x).getHasGivenBenefit())
 			{
 				//set gotFoodTime so more bonus is not given
@@ -533,9 +539,20 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 				friendObjArr.get(activeFriendly).setPosX(low + friendlyOffset); 
 			
 			if(friendObjArr.get(activeFriendly).getIsDental())//if its dental, use dental image
-				friendObjArr.get(activeFriendly).setImageRef(1);
+			{
+				if(rand.nextInt(2) == 0)
+					friendObjArr.get(activeFriendly).setImageRef(1);
+				else
+					friendObjArr.get(activeFriendly).setImageRef(5);					
+			}
 			else
-				friendObjArr.get(activeFriendly).setImageRef(2);//food image
+			{
+				switch(rand.nextInt(3)+2){
+				case 2:friendObjArr.get(activeFriendly).setImageRef(2); break;//food image 
+				case 3:friendObjArr.get(activeFriendly).setImageRef(3); break;//food image 
+				case 4:friendObjArr.get(activeFriendly).setImageRef(4); break;//food image 
+				}
+			}
 		}
     }
     
@@ -606,9 +623,23 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         
         //drawing player depending on vector
         if(Math.abs(delta)>gravity)
-        	drawBitmap(canvas, playerDown, false, 0);
+        {
+        	switch(hp){
+        	case 0: drawBitmap(canvas, highD, false, 0); break;
+        	case 1: drawBitmap(canvas, medD, false, 0); break;
+        	case 2: drawBitmap(canvas, lightD, false, 0); break;
+        	default: drawBitmap(canvas, whiteD, false, 0); break;
+        	}
+        }
         else
-        	drawBitmap(canvas, playerUp, false, 0);
+        {
+        	switch(hp){
+        	case 0: drawBitmap(canvas, highU, false, 0); break;
+        	case 1: drawBitmap(canvas, medU, false, 0); break;
+        	case 2: drawBitmap(canvas, lightU, false, 0); break;
+        	default: drawBitmap(canvas, whiteU, false, 0); break;
+        	}
+        }
         
         /*
         //DEBUG STRINGS EXAMPLE IF NEEDED
@@ -645,8 +676,8 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
         
         //circle representing players hitbox
         //DEBUG IN NATURE DELETE BEFORE DELIVERY
-        canvas.drawCircle(friendObjArr.get(0).getPosX(), friendObjArr.get(0).getPosY(), (float) friendObjArr.get(0).getRad(),
-                testPaint);
+        //canvas.drawCircle(friendObjArr.get(0).getPosX(), friendObjArr.get(0).getPosY(), (float) friendObjArr.get(0).getRad(),
+               // testPaint);
     }
 
     /** -------------------------------------------------------------------------------------------------------------------- **
@@ -729,7 +760,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	}
 	/** -------------------------------------------------------------------------------------------------------------------- **
     drawGameStart method
-    Draws initial splas screen showing a tutorial before game starts. goes away when game ends
+    Draws initial splash screen showing a tutorial before game starts. goes away when game ends
     ** -------------------------------------------------------------------------------------------------------------------- **/
 	private void drawGameStart(Canvas canvas)
 	{

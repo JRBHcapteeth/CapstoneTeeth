@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class bios extends ActionBarActivity{
 	
@@ -28,6 +29,8 @@ public class bios extends ActionBarActivity{
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
 		buttonBiosReturn.setId(0);
 
+		Button freeshit = (Button) findViewById(R.id.freeshit);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+		
 		//creates buttons to view heros and sets IDs
 		ImageButton buttonHeroOne = (ImageButton) findViewById(R.id.heroButton1);
 		buttonHeroOne.setId(1);
@@ -64,6 +67,9 @@ public class bios extends ActionBarActivity{
 		buttonHeroThree.setOnClickListener(buttonBiosListener);
 		buttonHeroFour.setOnClickListener(buttonBiosListener);
 		
+
+		freeshit.setOnClickListener(freeshitListener);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+		
 		buttonVillainOne.setOnClickListener(buttonBiosListener);
 		buttonVillainTwo.setOnClickListener(buttonBiosListener);
 		buttonVillainThree.setOnClickListener(buttonBiosListener);
@@ -77,12 +83,23 @@ public class bios extends ActionBarActivity{
 	//if bIsEng is true, text is English. Otherwise, it's Spanish
 	public void translate()
 	{
+		//creates textView to display credits
+		String msg;
+		TextView textViewCredits = (TextView) findViewById(R.id.textViewBiosCredit);
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
 		
 		if (sharedVars.getbIsEng())
+		{
+			msg = (getString(R.string.biosCreditEng))+" "+ sharedVars.getCredits();
+			textViewCredits.setText(msg);
 			buttonBiosReturn.setText(getString(R.string.buttonReturnEng));
+		}
 		else
+		{
+			msg = (getString(R.string.biosCreditSpn))+" "+ sharedVars.getCredits();
+			textViewCredits.setText(msg);
 			buttonBiosReturn.setText(getString(R.string.buttonReturnSpn));	
+		}
 	};
 	
 	//listener for all buttons on this view.
@@ -186,6 +203,7 @@ public class bios extends ActionBarActivity{
 								public void onClick(DialogInterface dialog, int id) 
 								{
 									unlockCharacter(num);
+									goToCharacter(num);
 								}
 							}
 							);
@@ -195,7 +213,8 @@ public class bios extends ActionBarActivity{
 							{     
 								public void onClick(DialogInterface dialog, int id) 
 								{
-									unlockCharacter(num);    
+									unlockCharacter(num);   
+									goToCharacter(num); 
 								}
 							}
 							);
@@ -241,4 +260,13 @@ public class bios extends ActionBarActivity{
 		}
 	};
 	
+	//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+	public OnClickListener freeshitListener = new OnClickListener() //DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+	{
+		public void onClick(View v)//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+		{//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+			SharedPreferences saveFile = bios.this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
+			sharedVars.setCredits(100, saveFile);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+		}//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
+	};
 }

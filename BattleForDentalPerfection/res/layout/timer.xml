@@ -42,8 +42,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/startButton"
         android:layout_marginTop="42dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/vill8" />
+        android:src="@drawable/yellowteeth" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -51,6 +50,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/imageView1"
-        android:src="@drawable/vill3" />
+        android:src="@drawable/whiteteeth" />
 
 </RelativeLayout>
