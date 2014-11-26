@@ -51,7 +51,7 @@ public void onCreate(Bundle savedInstanceState) {
     			Calendar calendar1 = Calendar.getInstance();
     			Calendar calendar2 = Calendar.getInstance();
     			tpFirst = (TimePicker) findViewById(R.id.tpFirst);
-    			tpSecond = (TimePicker) findViewById(R.id.tpSecond);
+    			//tpSecond = (TimePicker) findViewById(R.id.tpSecond);
     			
     			int minute1;
     			int minute2;
@@ -61,18 +61,18 @@ public void onCreate(Bundle savedInstanceState) {
     			minute1 = tpFirst.getCurrentMinute();
     			hour1 = tpFirst.getCurrentHour();
     			
-    			minute2 = tpSecond.getCurrentMinute();
-    			hour2 = tpSecond.getCurrentHour();
+    			//minute2 = tpSecond.getCurrentMinute();
+    			//hour2 = tpSecond.getCurrentHour();
     			
     			calendar1.set(Calendar.HOUR_OF_DAY, hour1);
     			calendar1.set(Calendar.MINUTE, minute1);
     			calendar1.set(Calendar.SECOND, 0);
     			calendar1.set(Calendar.MILLISECOND, 0);
     			
-    			calendar2.set(Calendar.HOUR_OF_DAY, hour2);
-    			calendar2.set(Calendar.MINUTE, minute2);
-    			calendar2.set(Calendar.SECOND, 0);
-    			calendar2.set(Calendar.MILLISECOND, 0);
+    			//calendar2.set(Calendar.HOUR_OF_DAY, hour2);
+    			//calendar2.set(Calendar.MINUTE, minute2);
+    			//calendar2.set(Calendar.SECOND, 0);
+    			//calendar2.set(Calendar.MILLISECOND, 0);
     			
     			
     			alarmIntent = PendingIntent.getBroadcast(reminder.this, 1234567, new Intent(reminder.this, myAlarmReceiver.class), 0);

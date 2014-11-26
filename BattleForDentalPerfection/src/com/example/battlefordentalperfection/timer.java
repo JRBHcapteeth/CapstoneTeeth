@@ -2,6 +2,7 @@ package com.example.battlefordentalperfection;
 
 import java.util.Calendar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class timer extends ActionBarActivity {
@@ -26,13 +28,25 @@ public class timer extends ActionBarActivity {
 	long timeInMilliseconds = 0L;
 	long timeSwapBuff = 0L;
 	long updatedTime = 0L;
+	
+	private ImageView yellowTeeth;
+    private ImageView whiteTeeth;
+    private int mShortAnimationDuration;
+    int whiteVis = 0;
+	int yellowVis = 1;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timer);
+		
 
 		timerValue = (TextView) findViewById(R.id.timerValue);
+		
+		yellowTeeth = (ImageView) findViewById(R.id.imageView1);
+		whiteTeeth = (ImageView)findViewById(R.id.imageView2);
+		
+		whiteTeeth.setAlpha((float)(0));
 
 		startButton = (Button) findViewById(R.id.startButton);
 		
@@ -89,6 +103,10 @@ public class timer extends ActionBarActivity {
 				Thread.currentThread().interrupt();
 				return;
 			}
+			yellowTeeth.setAlpha((float) (whiteVis + .00000000000001));
+			whiteTeeth.setAlpha((float)(yellowVis-.0000000000001));
+			
+			
 			customHandler.postDelayed(this, 0);
 		}
 

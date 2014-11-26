@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@color/colGrey"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="0dp"
+    android:background="@color/colGrey"
     android:stretchColumns="0,1,2" >
 
     <TimePicker
         android:id="@+id/tpFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TimePicker
-        android:id="@+id/tpSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
