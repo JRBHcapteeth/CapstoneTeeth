@@ -2,6 +2,8 @@ package com.example.battlefordentalperfection;
 
 import java.util.Calendar;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -40,26 +42,46 @@ public class timer extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.timer);
 		
-
+        //set all of the values to their respective object
 		timerValue = (TextView) findViewById(R.id.timerValue);
 		
-		yellowTeeth = (ImageView) findViewById(R.id.imageView1);
-		whiteTeeth = (ImageView)findViewById(R.id.imageView2);
-		
-		whiteTeeth.setAlpha((float)(0));
+		whiteTeeth = (ImageView) findViewById(R.id.imageView2);
+		yellowTeeth = (ImageView)findViewById(R.id.imageView1);
+
+		//make sure only the yellow teeth are showing
+		yellowTeeth.setAlpha(1f);
 
 		startButton = (Button) findViewById(R.id.startButton);
 		
+		//set the listener for the start button
 		startButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
+		        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
+
 				SharedPreferences saveFile = timer.this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
 				startTime = SystemClock.uptimeMillis();
 				Calendar cal = Calendar.getInstance();
 		        cal.setTimeInMillis(System.currentTimeMillis());
 		        sharedVars.setTimer(cal, saveFile);
-				startButton.setClickable(false);
+				startButton.setClickable(false);//if the start button is pressed
+				                                //make sure it cant be pressed again
 				pauseButton.setClickable(true);
+				//whiteTeeth.animate()
+				//.alpha(1f)
+				//.setDuration(120000)
+				//.setListener(null);
+				 
+				yellowTeeth.animate()//animation for the yellow teeth
+				.alpha(0f)
+				.setDuration(120000)
+				.setListener(new AnimatorListenerAdapter(){
+				@Override
+		                public void onAnimationEnd(Animator animation) {
+	                yellowTeeth.setVisibility(View.GONE);//when the animation is done
+	                                                     //make sure the yellow teeth are gone
+				}
+	            });
 				customHandler.postDelayed(updateTimerThread, 0);
 
 			}
@@ -67,13 +89,16 @@ public class timer extends ActionBarActivity {
 
 		pauseButton = (Button) findViewById(R.id.pauseButton);
 		pauseButton.setText("Stop");
+		//set the listener for the stop button
 		pauseButton.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View view) {
 			
 				timeSwapBuff += timeInMilliseconds;
 				startButton.setClickable(false);
-				pauseButton.setClickable(false);
+				pauseButton.setClickable(false); // make sure you cant spam the timer
+				//whiteTeeth.animate().cancel();
+				yellowTeeth.animate().cancel();
 				customHandler.removeCallbacks(updateTimerThread);
 
 			}
@@ -98,16 +123,21 @@ public class timer extends ActionBarActivity {
 			timerValue.setText("" + mins + ":"
 					+ String.format("%02d", secs) + ":"
 					+ String.format("%03d", milliseconds));
-			if(mins == 2 && secs == 0)
+			if(mins == 2 && secs == 0 && milliseconds == 0) //when two minutes has been reached
 			{
 				Thread.currentThread().interrupt();
+				//whiteTeeth.animate().cancel();
+				yellowTeeth.animate().cancel();
 				return;
 			}
-			yellowTeeth.setAlpha((float) (whiteVis + .00000000000001));
-			whiteTeeth.setAlpha((float)(yellowVis-.0000000000001));
+			if(whiteTeeth.getAlpha() == .9 )//make sure the white teeth dont dissapear
+			{
+				whiteTeeth.animate().cancel();
+			}
 			
 			
-			customHandler.postDelayed(this, 0);
+			
+			customHandler.postDelayed(this, 0);//go through the thread again
 		}
 
 	};
