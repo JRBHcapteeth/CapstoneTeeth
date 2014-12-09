@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/BiosLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colGrey"
-    android:orientation="vertical" >
+    android:background="@color/colGrey" >
 
     <TableLayout
         android:id="@+id/HeroTable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:stretchColumns="0,1,2" >
+        android:shrinkColumns="0"
+        android:stretchColumns="1,2" >
 
         <TableRow
             android:id="@+id/heroRow1"
@@ -22,9 +22,10 @@
                 android:id="@+id/heroButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/hero1" />
 
             <ImageButton
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/hero2" />
 
             <ImageButton
@@ -42,15 +43,15 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/hero3" />
-
         </TableRow>
 
         <TableRow
             android:id="@+id/heroRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:paddingTop="7dp" >
 
             <TextView
@@ -66,19 +67,9 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/hero4" />
-
         </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/VillainTable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:paddingTop="10dp"
-        android:stretchColumns="0,1,2,3,4" >
 
         <TableRow
             android:id="@+id/villainRow1"
@@ -89,9 +80,10 @@
                 android:id="@+id/villainButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill1" />
 
             <ImageButton
@@ -100,9 +92,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill2" />
-
         </TableRow>
 
         <TableRow
@@ -115,9 +106,10 @@
                 android:id="@+id/villainButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill4" />
 
             <ImageButton
@@ -126,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill3" />
 
             <ImageButton
@@ -135,9 +127,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill5" />
-
         </TableRow>
 
         <TableRow
@@ -150,9 +141,10 @@
                 android:id="@+id/villainButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill7" />
 
             <ImageButton
@@ -161,9 +153,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill6" />
-
         </TableRow>
 
         <TableRow
@@ -176,18 +167,13 @@
                 android:id="@+id/villainButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:background="@color/colClear"
                 android:padding="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="center"
                 android:src="@drawable/vill8" />
 
         </TableRow>
-
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -199,24 +185,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
+                android:layout_weight="1"
                 android:text="credit : 999"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <Button
-                android:id="@+id/freeshit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
         </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/ReturnTable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:stretchColumns="0" >
 
         <TableRow
             android:id="@+id/biosReturnRow"
@@ -227,9 +200,11 @@
                 android:id="@+id/biosReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_weight="2"
                 android:text="return to main" />
 
         </TableRow>
     </TableLayout>
 
-</LinearLayout>
+</ScrollView>

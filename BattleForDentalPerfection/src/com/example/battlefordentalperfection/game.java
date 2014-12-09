@@ -64,6 +64,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	private double radius;//for use in making events
 	
 	//image files
+	private Bitmap gameBG;
 	private Bitmap junkOne, junkTwo, junkThree, junkFour, junkFive, junkSix;
 	private Bitmap foodOne, foodTwo, foodThree;
 	private Bitmap dentalOne, dentalTwo;
@@ -76,8 +77,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 	//paint objects used for drawing
 	private Paint backgroundPaint; // Paint used to clear the drawing area
 	private Paint textboxPaint; // Paint used to encapsulate text
-	private Paint testPaint;//DEBUG PAINT FOR PLAYER HITBOX
-	private Paint textPaint;//DEBUG PAINT FOR TEXT
+	private Paint textPaint;//paint for text
 
 	/** -------------------------------------------------------------------------------------------------------------------- **
     game method
@@ -127,12 +127,14 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		hostileObjArr.add(4, new hostileObj(0, 0, 0, 0, 0, 0, 0, false, false, false));
 		
 		//sets filepaths for the images
-        junkOne = BitmapFactory.decodeResource(getResources(), R.drawable.vill1);
-        junkTwo = BitmapFactory.decodeResource(getResources(), R.drawable.vill2);
-        junkThree = BitmapFactory.decodeResource(getResources(), R.drawable.vill3);
-        junkFour = BitmapFactory.decodeResource(getResources(), R.drawable.vill4);
-        junkFive = BitmapFactory.decodeResource(getResources(), R.drawable.vill5);
-        junkSix = BitmapFactory.decodeResource(getResources(), R.drawable.vill6);
+        gameBG = BitmapFactory.decodeResource(getResources(), R.drawable.gamebg);
+        
+        junkOne = BitmapFactory.decodeResource(getResources(), R.drawable.hostile1);
+        junkTwo = BitmapFactory.decodeResource(getResources(), R.drawable.hostile2);
+        junkThree = BitmapFactory.decodeResource(getResources(), R.drawable.hostile5);
+        junkFour = BitmapFactory.decodeResource(getResources(), R.drawable.hostile3);
+        junkFive = BitmapFactory.decodeResource(getResources(), R.drawable.hostile4);
+        junkSix = BitmapFactory.decodeResource(getResources(), R.drawable.hostile6);
         
         foodOne = BitmapFactory.decodeResource(getResources(), R.drawable.food1);
         foodTwo = BitmapFactory.decodeResource(getResources(), R.drawable.food2);
@@ -152,7 +154,6 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 
 		textboxPaint = new Paint(); // Paint for drawing boxes around text
 		backgroundPaint = new Paint(); // Paint for clearing the background
-	    testPaint = new Paint(); // Paint for drawing
 	    textPaint = new Paint(); //paint for text
 		
 	}
@@ -191,7 +192,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 		textPaint.setAntiAlias(true); // smoothes the text
 		textPaint.setColor(Color.WHITE);
 	      
-		backgroundPaint.setColor(Color.RED); // set background color
+		backgroundPaint.setColor(getResources().getColor(R.color.colGameBG)); // set background color
 		textboxPaint.setColor(Color.BLACK); // set background color
 		
 		//creates an easy hostile for the player to get used to the controls
@@ -564,9 +565,10 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
     ** -------------------------------------------------------------------------------------------------------------------- **/
     public void drawEntities(Canvas canvas)
     {
-    	// clear the background
-        canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), 
-           backgroundPaint);
+    	// draw the background        
+    	canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), 
+    	         backgroundPaint);
+        //canvas.drawBitmap(gameBG, null, new Rect(0, 0, screenWidth, screenHeight), null);
         
         for(int x = 0; x < hostileObjArr.size(); x++) //checks what hostile objects are active to draw
 		{
@@ -673,11 +675,6 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 
         //restores canvas to previous orientation
         canvas.restore();
-        
-        //circle representing players hitbox
-        //DEBUG IN NATURE DELETE BEFORE DELIVERY
-        //canvas.drawCircle(friendObjArr.get(0).getPosX(), friendObjArr.get(0).getPosY(), (float) friendObjArr.get(0).getRad(),
-               // testPaint);
     }
 
     /** -------------------------------------------------------------------------------------------------------------------- **

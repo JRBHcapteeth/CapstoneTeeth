@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:background="@drawable/bg"
-    android:stretchColumns="0,1,2" >
+    android:stretchColumns="0,1" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@color/colGrey"
+            android:background="@color/colButton"
             android:text="bios" />
 
         <Button
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@color/colGrey"
+            android:background="@color/colButton"
             android:text="remind" />
 
     </TableRow>
@@ -47,16 +47,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@color/colGrey"
+            android:background="@color/colButton"
             android:text="time" />
 
         <Button
-            android:id="@+id/buttonStory"
+            android:id="@+id/buttonGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@color/colGrey"
-            android:text="story" />
+            android:background="@color/colButton"
+            android:text="game" />
 
     </TableRow>
 
@@ -67,19 +67,11 @@
         android:layout_margin="4dp" >
 
         <Button
-            android:id="@+id/buttonGame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:background="@color/colGrey"
-            android:text="game" />
-
-        <Button
             android:id="@+id/buttonLang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@color/colGrey"
+            android:background="@color/colButton"
             android:text="Language" />
 
     </TableRow>

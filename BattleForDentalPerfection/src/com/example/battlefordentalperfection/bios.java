@@ -28,8 +28,6 @@ public class bios extends ActionBarActivity{
 		//creates button to return to main menu and sets ID
 		Button buttonBiosReturn = (Button) findViewById(R.id.biosReturn);
 		buttonBiosReturn.setId(0);
-
-		Button freeshit = (Button) findViewById(R.id.freeshit);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
 		
 		//creates buttons to view heros and sets IDs
 		ImageButton buttonHeroOne = (ImageButton) findViewById(R.id.heroButton1);
@@ -66,9 +64,6 @@ public class bios extends ActionBarActivity{
 		buttonHeroTwo.setOnClickListener(buttonBiosListener);
 		buttonHeroThree.setOnClickListener(buttonBiosListener);
 		buttonHeroFour.setOnClickListener(buttonBiosListener);
-		
-
-		freeshit.setOnClickListener(freeshitListener);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
 		
 		buttonVillainOne.setOnClickListener(buttonBiosListener);
 		buttonVillainTwo.setOnClickListener(buttonBiosListener);
@@ -258,15 +253,5 @@ public class bios extends ActionBarActivity{
 					new Intent(bios.this, MainActivity.class);
 			startActivity(returnBios);
 		}
-	};
-	
-	//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
-	public OnClickListener freeshitListener = new OnClickListener() //DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
-	{
-		public void onClick(View v)//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
-		{//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
-			SharedPreferences saveFile = bios.this.getSharedPreferences("com.example.battlefordentalperfection", Context.MODE_PRIVATE);
-			sharedVars.setCredits(100, saveFile);//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
-		}//DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME DELETE ME 
 	};
 }

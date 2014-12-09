@@ -1,6 +1,5 @@
 package com.example.battlefordentalperfection;
 
-
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,7 +28,6 @@ public class MainActivity extends ActionBarActivity{
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
 		Button buttonReminder = (Button) findViewById(R.id.buttonReminder);
 		Button buttonTimer = (Button) findViewById(R.id.buttonTimer);
-		Button buttonStory = (Button) findViewById(R.id.buttonStory);
 		Button buttonGame = (Button) findViewById(R.id.buttonGame);
 		Button buttonLang = (Button) findViewById(R.id.buttonLang);
 		
@@ -37,7 +35,6 @@ public class MainActivity extends ActionBarActivity{
 		buttonBios.setOnClickListener(buttonBiosListener);
 		buttonReminder.setOnClickListener(buttonReminderListener);		
 		buttonTimer.setOnClickListener(buttonTimerListener);		
-		buttonStory.setOnClickListener(buttonStoryListener);		
 		buttonGame.setOnClickListener(buttonGameListener);		
 		buttonLang.setOnClickListener(buttonLangListener);
 		
@@ -72,7 +69,6 @@ public class MainActivity extends ActionBarActivity{
 		Button buttonBios = (Button) findViewById(R.id.buttonBios);
 		Button buttonReminder = (Button) findViewById(R.id.buttonReminder);
 		Button buttonTimer = (Button) findViewById(R.id.buttonTimer);
-		Button buttonStory = (Button) findViewById(R.id.buttonStory);
 		Button buttonGame = (Button) findViewById(R.id.buttonGame);
 		Button buttonLang = (Button) findViewById(R.id.buttonLang);
 		
@@ -81,7 +77,6 @@ public class MainActivity extends ActionBarActivity{
 			buttonBios.setText(getString(R.string.buttonBiosEng));
 			buttonTimer.setText(getString(R.string.buttonTimerEng));
 			buttonReminder.setText(getString(R.string.buttonReminderEng));
-			buttonStory.setText(getString(R.string.buttonStoryEng));
 			buttonGame.setText(getString(R.string.buttonGameEng));
 			buttonLang.setText(getString(R.string.buttonLangEng));
 		}
@@ -90,7 +85,6 @@ public class MainActivity extends ActionBarActivity{
 			buttonBios.setText(getString(R.string.buttonBiosSpn));
 			buttonTimer.setText(getString(R.string.buttonTimerSpn));
 			buttonReminder.setText(getString(R.string.buttonReminderSpn));
-			buttonStory.setText(getString(R.string.buttonStorySpn));
 			buttonGame.setText(getString(R.string.buttonGameSpn));
 			buttonLang.setText(getString(R.string.buttonLangSpn));		
 		}
@@ -125,15 +119,6 @@ public class MainActivity extends ActionBarActivity{
 			Intent startTimer = 
 					new Intent(MainActivity.this, timer.class);
 			startActivity(startTimer);
-		}
-	};
-	public OnClickListener buttonStoryListener = new OnClickListener() 
-	{
-		public void onClick(View v)
-		{
-			Intent startStory = 
-					new Intent(MainActivity.this, story.class);
-			startActivity(startStory);
 		}
 	};
 	public OnClickListener buttonGameListener = new OnClickListener() 

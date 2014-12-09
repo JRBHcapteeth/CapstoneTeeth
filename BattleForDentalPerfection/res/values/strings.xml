@@ -4,7 +4,6 @@
     <string name="app_name">Battle for Dental Perfection</string>
     <string name="action_settings">Battle For Dental Perfection</string>
     <string name="buttonGameEng">Game</string><string name="buttonGameSpn">Partida</string>
-    <string name="buttonStoryEng">Story</string><string name="buttonStorySpn">Argumento</string>
     <string name="buttonTimerEng">Timer</string><string name="buttonTimerSpn">Temporizador</string>
     <string name="buttonReminderEng">Reminder</string><string name="buttonReminderSpn">Aviso</string>
     <string name="buttonBiosEng">Biographies</string><string name="buttonBiosSingEng">Biography</string><string name="buttonBiosSpn">Biografia</string>
@@ -33,7 +32,9 @@
     <string name="pauseButtonLabel">Pause</string>
     
     <color name="colClear">#00000000</color>
-    <color name="colGrey">#ddaaaaaa</color>
+    <color name="colGameBG">#ffab2424</color>
+    <color name="colButton">#eeaaaaaa</color>
+    <color name="colGrey">#aa613a77</color>
     
     <string name="charHero1NameEng">Dental Perfectionman</string><string name="charHero1NameSpn">Dental Perfectionman</string>
     <string name="charHero1BioEng">Dental Perfectionman has a passion for helping people.  
