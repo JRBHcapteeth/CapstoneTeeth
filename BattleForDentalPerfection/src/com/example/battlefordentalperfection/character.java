@@ -169,6 +169,7 @@ public class character extends ActionBarActivity{
 	{
 		public void onClick(View v)
 		{
+			System.gc();
 			Intent returnBios = 
 					new Intent(character.this, bios.class);
 			startActivity(returnBios);

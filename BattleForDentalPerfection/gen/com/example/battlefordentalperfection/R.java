@@ -1111,18 +1111,19 @@ containing a value of this type.
         public static final int medu=0x7f020072;
         public static final int right=0x7f020073;
         public static final int startgamebg=0x7f020074;
-        public static final int vill1=0x7f020075;
-        public static final int vill2=0x7f020076;
-        public static final int vill3=0x7f020077;
-        public static final int vill4=0x7f020078;
-        public static final int vill5=0x7f020079;
-        public static final int vill6=0x7f02007a;
-        public static final int vill7=0x7f02007b;
-        public static final int vill8=0x7f02007c;
-        public static final int whited=0x7f02007d;
-        public static final int whiteteeth=0x7f02007e;
-        public static final int whiteu=0x7f02007f;
-        public static final int yellowteeth=0x7f020080;
+        public static final int testbg=0x7f020075;
+        public static final int vill1=0x7f020076;
+        public static final int vill2=0x7f020077;
+        public static final int vill3=0x7f020078;
+        public static final int vill4=0x7f020079;
+        public static final int vill5=0x7f02007a;
+        public static final int vill6=0x7f02007b;
+        public static final int vill7=0x7f02007c;
+        public static final int vill8=0x7f02007d;
+        public static final int whited=0x7f02007e;
+        public static final int whiteteeth=0x7f02007f;
+        public static final int whiteu=0x7f020080;
+        public static final int yellowteeth=0x7f020081;
     }
     public static final class id {
         public static final int BiosLayout=0x7f09003c;

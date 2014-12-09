@@ -128,7 +128,7 @@ public class sharedVars {
 	
 	static void loadCredits(SharedPreferences saveFile)
 	{
-		credits = saveFile.getInt(CREDITS, 10);
+		credits = saveFile.getInt(CREDITS, 1000);
 	}
 	
 	static int getHighScore(int diff)
