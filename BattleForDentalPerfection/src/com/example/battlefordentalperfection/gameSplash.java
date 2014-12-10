@@ -40,7 +40,6 @@ public class gameSplash extends ActionBarActivity{
 		TextView textHighScoreEasy = (TextView) findViewById(R.id.textViewHighScoreEasy);
 		TextView textHighScoreMedium = (TextView) findViewById(R.id.textViewHighScoreMedium);
 		TextView textHighScoreHard = (TextView) findViewById(R.id.textViewHighScoreHard);
-		TextView textEarnCred = (TextView) findViewById(R.id.textViewCredits);
 		
 		if (sharedVars.getbIsEng())
 		{
@@ -63,7 +62,6 @@ public class gameSplash extends ActionBarActivity{
 			textHighScoreMedium.setText(message);
 			message = getString(R.string.textHighScoreHardEng)+" "+String.valueOf(sharedVars.getHighScore(2));
 			textHighScoreHard.setText(message);
-			textEarnCred.setText(getString(R.string.textEarnCredEng));
 		}
 		else
 		{
@@ -86,7 +84,6 @@ public class gameSplash extends ActionBarActivity{
 			textHighScoreMedium.setText(message);
 			message = getString(R.string.textHighScoreHardSpn)+" "+String.valueOf(sharedVars.getHighScore(2));
 			textHighScoreHard.setText(message);	
-			textEarnCred.setText(getString(R.string.textEarnCredSpn));
 		}
 	};
 	

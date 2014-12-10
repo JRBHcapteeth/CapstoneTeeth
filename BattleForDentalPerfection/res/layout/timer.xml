@@ -23,7 +23,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="38dp"
-        android:text="start" />
+        android:text="@string/startButtonLabel" />
 
     <Button
         android:id="@+id/pauseButton"
@@ -33,7 +33,7 @@
         android:layout_alignBottom="@+id/startButton"
         android:layout_alignParentRight="true"
         android:layout_marginRight="38dp"
-        android:text="stop" />
+        android:text="@string/pauseButtonLabel" />
 
     <ImageView
         android:id="@+id/imageView1"
