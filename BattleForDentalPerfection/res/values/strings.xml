@@ -3,73 +3,82 @@
 
     <string name="app_name">Battle for Dental Perfection</string>
     <string name="action_settings">Battle For Dental Perfection</string>
-    <string name="buttonGameEng">Game</string><string name="buttonGameSpn">Partida</string>
-    <string name="buttonTimerEng">Timer</string><string name="buttonTimerSpn">Temporizador</string>
-    <string name="buttonReminderEng">Reminder</string><string name="buttonReminderSpn">Aviso</string>
+    <string name="buttonGameEng">Game</string><string name="buttonGameSpn">Juego</string>
+    <string name="buttonStoryEng">Story</string><string name="buttonStorySpn">Argumento</string>
+    <string name="buttonTimerEng">Timer</string><string name="buttonTimerSpn">Cronometro</string>
+    <string name="buttonReminderEng">Reminder</string><string name="buttonReminderSpn">Recordatorio</string>
     <string name="buttonBiosEng">Biographies</string><string name="buttonBiosSingEng">Biography</string><string name="buttonBiosSpn">Biografia</string>
     <string name="buttonRepresentEng">Representation</string><string name="buttonRepresentSpn">Representacion</string>
     <string name="buttonReturnEng">Main Menu</string><string name="buttonReturnSpn">Menu Principal</string>
-    <string name="biosCreditEng">Total credits:</string><string name="biosCreditSpn">Total creditso:</string>
-    <string name="buttonLoadingEng">Loading...</string><string name="buttonLoadingSpn">El Loading...</string>
-    <string name="buttonLangEng">Cambiar a Espanol</string><string name="buttonLangSpn">Change to English</string>
-    <string name="buttonCharLockedEng">Character locked</string><string name="buttonCharLockedSpn">Charactero lockedo</string>
-    <string name="buttonCharBuyMsgOneEng">Spend 10 of your</string><string name="buttonCharBuyMsgOneSpn">Spendo 10 of your</string>
-    <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">creditso to unlocko this charactero?</string>
+    <string name="biosCreditEng">Total credits:</string><string name="biosCreditSpn">Creditos:</string>
+    <string name="buttonLoadingEng">Loading...</string><string name="buttonLoadingSpn">Cargando...</string>
+    <string name="buttonLangEng">Español</string><string name="buttonLangSpn">English</string>
+    <string name="buttonCharLockedEng">Character locked</string><string name="buttonCharLockedSpn">Personaje Bloqueado</string>
+    <string name="buttonCharBuyMsgOneEng">Spend 10 of your</string><string name="buttonCharBuyMsgOneSpn">¿Usar 10 creditos</string>
+    <string name="buttonCharBuyMsgTwoEng">credits to unlock this character?</string><string name="buttonCharBuyMsgTwoSpn">parra abrir el personaje?</string>
     <string name="buttonCharBuyConfirmEng">Unlock</string><string name="buttonCharBuyConfirmSpn">Unlocko</string>
-    <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Insufficiento creditos</string>
-    <string name="textHighScoreEasyEng">High Score (Easy):</string><string name="textHighScoreEasySpn">Higho scoreo (Easyo):</string>
-    <string name="textHighScoreMediumEng">High Score (Medium):</string><string name="textHighScoreMediumSpn">Higho scoreo (Mediumo):</string>
-    <string name="textHighScoreHardEng">High Score (Hard):</string><string name="textHighScoreHardSpn">Higho scoreo (Hardo):</string>
-    <string name="buttonDifficultyEasyEng">Easy</string><string name="buttonDifficultyEasySpn">Easyo</string>
-    <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Mediumo</string>
-    <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Hardo</string>
-    <string name="buttonStartGameEng">Start Game!</string><string name="buttonStartGameSpn">Starto Gameo!</string>
-    <string name="gameOverTitleEng">Game Over</string><string name="gameOverTitleSpn">Game Overo</string>
-    <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Scoreo:</string>
-    <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OKo</string>
-    <string name="timerVal">0</string>
-    <string name="startButtonLabel">Start</string>
-    <string name="pauseButtonLabel">Pause</string>
+    <string name="buttonCharNoCredEng">Insufficient credits</string><string name="buttonCharNoCredSpn">Creditos Insufficientes</string>
+    <string name="textHighScoreEasyEng">High Score (Easy):</string><string name="textHighScoreEasySpn">Resultado Alto (Facil):</string>
+    <string name="textHighScoreMediumEng">High Score (Medium):</string><string name="textHighScoreMediumSpn">Resultado Alto (Media):</string>
+    <string name="textHighScoreHardEng">High Score (Hard):</string><string name="textHighScoreHardSpn">Resultado Alto (Difícil):</string>
+    <string name="buttonDifficultyEasyEng">Easy</string><string name="buttonDifficultyEasySpn">Facíl</string>
+    <string name="buttonDifficultyMedEng">Medium</string><string name="buttonDifficultyMedSpn">Media</string>
+    <string name="buttonDifficultyHardEng">Hard</string><string name="buttonDifficultyHardSpn">Difícil</string>
+    <string name="buttonStartGameEng">Start Game!</string><string name="buttonStartGameSpn">Jugar!</string>
+    <string name="gameOverTitleEng">Game Over</string><string name="gameOverTitleSpn">Perdedor</string>
+    <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Resultado:</string>
+    <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OK</string>
+    <string name="timerVal">0:00:00</string>
+    <string name="startButtonLabel">Empezar</string>
+    <string name="pauseButtonLabel">Alto</string>
     
     <color name="colClear">#00000000</color>
-    <color name="colGameBG">#ffab2424</color>
-    <color name="colButton">#eeaaaaaa</color>
-    <color name="colGrey">#aa613a77</color>
+    <color name="colGrey">#ddaaaaaa</color>
     
     <string name="charHero1NameEng">Dental Perfectionman</string><string name="charHero1NameSpn">Dental Perfectionman</string>
     <string name="charHero1BioEng">Dental Perfectionman has a passion for helping people.  
         Bad dental hygiene can lead to many other issues.  
         His goal is to educate and fight against bad dental hygiene.  
         He fights against Dr. Racuza and his minions to help people take care of themselves and their teeth.</string>
-    <string name="charHero1BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero1BioSpn">tiene una pasión por ayudar a la gente.
+Mala higiene dental puede conducir a muchas otras cuestiones.
+Su objetivo es educar y luchar contra la mala higiene dental.</string>
     <string name="charHero1RepEng">He\'s a dentist</string>
-    <string name="charHero1RepSpn">I NEED A TRANSLATION</string>
+    <string name="charHero1RepSpn">Es un dentista</string>
     
     <string name="charHero2NameEng">Perla Blanca</string><string name="charHero2NameSpn">Perla Blanca</string>
     <string name="charHero2BioEng">Perla Blanca is the wife of Dental Perfectionman.  
         Together, they fight against bad dental hygiene. 
         She fights with Dental Perfectionman, against Dr. Racuza and his minions, 
         	to help people take care of themselves and their teeth. </string>
-    <string name="charHero2BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero2BioSpn">Perla Blanca es la esposa de Dental Perfectionman.
+Juntos, luchan contra la mala higiene dental.
+Ella pelea con Dental Perfectionman, contra Dr. Racuza y sus secuaces,
+ayudar a la gente a cuidar de sí mismos y sus dientes.</string>
     <string name="charHero2RepEng">She\'s a dental hygienist</string>
-    <string name="charHero2RepSpn">I NEED A TRANSLATION</string>
+    <string name="charHero2RepSpn">Es una dentista</string>
     
     <string name="charHero3NameEng">Ortho</string><string name="charHero3NameSpn">Ortho</string>
     <string name="charHero3BioEng">He and Dental Perfectionman were childhood friends.  
         He teams up with Dental Perfectionman and Perla Blanca to help fight against bad dental hygiene. 
         He fights with Dental Perfectionman and Perla Blanca, against Dr. Racuza and his minions, 
         	to help people take care of themselves and their teeth. </string>
-    <string name="charHero3BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero3BioSpn">El y Dental Perfectionman eran amigos de la infancia
+        Él se asocia con Dental Perfectionman y Perla Blanca para ayudar a luchar contra la mala higiene dental.
+        Él lucha con Perfectionman Dental y Perla Blanca, contra el Dr. Racuza y sus secuaces,
+        ayudar a la gente a cuidar de sí mismos y sus dientes.</string>
     <string name="charHero3RepEng">He\'s an orthodontist</string>
-    <string name="charHero3RepSpn">I NEED A TRANSLATION</string>
+    <string name="charHero3RepSpn">Ortodontista</string>
     
     <string name="charHero4NameEng">Anti</string><string name="charHero4NameSpn">Anti</string>
     <string name="charHero4BioEng">Anti is the pet of Dental Perfectionman and Perla Blanca.  
         He fights bad dental hygiene with his owners.  
         He dispenses toothpaste to do his part to fight dental decay.</string>
-    <string name="charHero4BioSpn">I NEED A TRANSLATION</string>
+    <string name="charHero4BioSpn">Anti es la mascota de Dental Perfectionman y Perla Blanca.
+Lucha mala higiene dental con sus dueños.
+Dispensa el dentífrico para hacer su parte para combatir la caries dental.</string>
     <string name="charHero4RepEng">He\'s a Chihuahua</string>
-    <string name="charHero4RepSpn">I NEED A TRANSLATION</string>
+    <string name="charHero4RepSpn">Es un Perro</string>
     
     
     
@@ -77,59 +86,74 @@
     <string name="charVillain1BioEng">Plaque Attack has a plaque problem.
         He also has anger problems because of having been bullied.  
         His anger gets him in a lot of trouble.</string>
-    <string name="charVillain1BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain1BioSpn">Plaque Attack tiene un problema de placa.
+También tiene problemas de ira por haber sido intimidado.
+Su ira lo mete en un montón de problemas.</string>
     <string name="charVillain1RepEng">Plaque builds up as a result of not brushing your teeth.</string>
-    <string name="charVillain1RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain1RepSpn">Placa se acumula como consecuencia de no cepillarse los dientes</string>
     
     <string name="charVillain2NameEng">Sweet Tooth Sam</string><string name="charVillain2NameSpn">Sweet Tooth Sam</string>
     <string name="charVillain2BioEng">Sweet Tooth Sam has a horrible diet.  
         He eats whatever he can get his hands on!  
         He never brushes his teeth.</string>
-    <string name="charVillain2BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain2BioSpn">tiene una dieta horrible.
+        Come lo que puede conseguir!
+        Nunca cepilla los dientes</string>
     <string name="charVillain2RepEng">Acid is created when plaque and complex carbs and sugars mix from all the bad foods that he eats.</string>
-    <string name="charVillain2RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain2RepSpn">El ácido se crea cuando placa y carbohidratos complejos y azúcares de la mezcla de todos los malos alimentos que come.</string>
     
     <string name="charVillain3NameEng">aCIDic</string><string name="charVillain3NameSpn">aCIDic</string>
     <string name="charVillain3BioEng">aCIDic is a social media and video game junky and is also a hacker.  
         He has a very abrasive or caustic personality.  
         He does not know how to make friends or share.</string>
-    <string name="charVillain3BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain3BioSpn">aCIDic es un medio de comunicación social y video juego adicto y también es un hacker.
+        Tiene una personalidad muy abrasiva o cáustica.</string>
     <string name="charVillain3RepEng">Acid attacks teeth to break them down and cause cavities.</string>
-    <string name="charVillain3RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain3RepSpn">El ácido ataca los dientes para romperlos y causar caries.</string>
     
     <string name="charVillain4NameEng">Cathy Cavity</string><string name="charVillain4NameSpn">Cathy Cavity</string>
     <string name="charVillain4BioEng">Cathy Cavity has a mouth full of cavities. 
         She is a kleptomaniac and steals whatever she can get her hands on.  </string>
-    <string name="charVillain4BioSpn">I NEED A TRANSLATION</string>
-    <string name="charVillain4RepEng">Cavities are holes in yo teeth.</string>
-    <string name="charVillain4RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain4BioSpn">Cathy Cavity tiene la boca llena de caries.
+        Ella es un cleptómano y roba lo que ella puede tener en sus manos</string>
+    <string name="charVillain4RepEng">Cavities are holes in your teeth.</string>
+    <string name="charVillain4RepSpn">Las caries son agujeros en los dientes</string>
     
     <string name="charVillain5NameEng">Ginger Vitis</string><string name="charVillain5NameSpn">Ginger Vitis</string>
     <string name="charVillain5BioEng">She is a ginger who uses her looks to get what she wants.  
         She is a perfect ten until she opens her mouth.  
         Beauty is only skin deep.  
         She is perfect on the outside, but not on the inside.  </string>
-    <string name="charVillain5BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain5BioSpn">Ella es pelirroja que usa su belleza para conseguir lo que quiere.
+        Ella es una perfecta hasta que abra la boca.
+        Belleza es sólo superficial.
+        Es perfecta en el exterior, pero no en el interior.</string>
     <string name="charVillain5RepEng">She has gingivitis, which is bleeding of the gums. </string>
-    <string name="charVillain5RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain5RepSpn">Ella tiene la gingivitis, que es sangrado de las encías</string>
     
     <string name="charVillain6NameEng">Foul Mouth Frank</string><string name="charVillain6NameSpn">Foul Mouth Frank</string>
     <string name="charVillain6BioEng">He is a homeless vet who has a drug and alcohol problem.  
         He will steal and hurt people in order to keep getting his fix.  </string>
-    <string name="charVillain6BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain6BioSpn">Es un veterano que tiene un problema de drogas y alcohol.
+        Será robar y herir a la gente con el fin de seguir recibiendo su dosis.</string>
     <string name="charVillain6RepEng">Foul Mouth Frank has halitosis.  
         Extremely bad breath!</string>
-    <string name="charVillain6RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain6RepSpn">Foul Mouth Frank tiene mal aliento.
+        Extremadamente mal aliento!</string>
     
     <string name="charVillain7NameEng">Roothless Toothless</string><string name="charVillain7NameSpn">Roothless Toothless</string>
     <string name="charVillain7BioEng">He dropped out of school and doesn’t know how to spell correctly.   
         He misspells his name with two o’s instead of a u.  
         He is so big and strong because he shoots steroids.  
         The steroids cause him to have ‘roid rage, impotence and balding.  </string>
-    <string name="charVillain7BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain7BioSpn">Él dejó la escuela y no sabe cómo se escribe correctamente.
+        Él comete esos errores su nombre con una o dos en lugar de una u.
+        Es tan grande y fuerte porque le dispara a los esteroides.
+        Los esteroides causan que tenga roid rabia, impotencia y calvicie</string>
     <string name="charVillain7RepEng">Roothless Toothless has the final stage of dental decline, which is tooth loss.  
         Once we lose our teeth, we cannot fix the damage. </string>
-    <string name="charVillain7RepSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain7RepSpn">Roothless Toothless tiene la etapa final del deterioro dental, que es la pérdida del diente.
+        Una vez que perdemos nuestros dientes, no podemos arreglar el daño.</string>
     
     <string name="charVillain8NameEng">Dr. Racuza</string><string name="charVillain8NameSpn">Dr. Racuza</string>
     <string name="charVillain8BioEng">Dr. Racuza is a mad scientist who the seven villains team up with.  
@@ -137,7 +161,11 @@
         He infuses that substance into candy, sodas, drugs and alcohol, which are already bad for us and our teeth.  
         The villains give those things to people, without them knowing.  
         They grow an army of people who are subservient to them, to do their bidding in order to keep getting their fix.  </string>
-    <string name="charVillain8BioSpn">I NEED A TRANSLATION</string>
+    <string name="charVillain8BioSpn">El Dr. Racuza es un científico loco que los siete villanos equipo con.
+        Inventa una sustancia que es altamente adictiva y pudre los dientes muy rápido.
+        Infunde esa sustancia en dulces, refrescos, drogas y alcohol, que ya son malos para nosotros y para nuestros dientes.
+        Los villanos dan esas cosas a la gente, sin ellos saberlo.
+        Crecen un ejército de personas que son subordinadas a ellos, para hacer su hacer una oferta para seguir recibiendo su dosis</string>
     <string name="charVillain8RepEng">He\'s a bad one.</string>
     <string name="charVillain8RepSpn">I NEED A TRANSLATION</string>
 </resources>
