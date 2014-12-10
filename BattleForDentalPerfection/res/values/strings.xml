@@ -29,11 +29,14 @@
     <string name="gameOverScoreEng">Score:</string><string name="gameOverScoreSpn">Resultado:</string>
     <string name="gameOverOKEng">OK</string><string name="gameOverOKSpn">OK</string>
     <string name="timerVal">0:00:00</string>
-    <string name="startButtonLabel">Empezar</string>
-    <string name="pauseButtonLabel">Alto</string>
+    <string name="startButtonLabelEng">Start</string><string name="startButtonLabelSpn">Empezar</string>
+    <string name="pauseButtonLabelEng">Stop</string><string name="pauseButtonLabelSpn">Alto</string>
+    <string name="textEarnCredEng">For every 50 points, earn 1 credit!</string><string name="textEarnCredSpn">Por cada 50 puntos, gana 1 crédito!</string>
     
     <color name="colClear">#00000000</color>
-    <color name="colGrey">#ddaaaaaa</color>
+    <color name="colGrey">#ff9277a2</color>
+    <color name="colGameBG">#ffab2424</color>
+    <color name="colButton">#eeaaaaaa</color>
     
     <string name="charHero1NameEng">Dental Perfectionman</string><string name="charHero1NameSpn">Dental Perfectionman</string>
     <string name="charHero1BioEng">Dental Perfectionman has a passion for helping people.  

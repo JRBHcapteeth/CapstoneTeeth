@@ -227,7 +227,7 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
     ** -------------------------------------------------------------------------------------------------------------------- **/
 	public void resetPlayerMath(MotionEvent event)
 	{
-		delta = screenWidth / 375;//resets the upwards vector
+		delta = screenWidth / 350;//resets the upwards vector
 		friendObjArr.get(0).setPosX(playerMathXVal);//sets the starting position of the players new arc
 		playerHasTapped = true;//signals that the game has started
 	}
@@ -780,6 +780,8 @@ public class game extends SurfaceView implements SurfaceHolder.Callback{
 			sharedVars.setHighScore(1, score, saveFile);
 		if (sharedVars.getDifficulty() == 2 && score > sharedVars.getHighScore(2))
 			sharedVars.setHighScore(2, score, saveFile);
+		
+		sharedVars.setCredits(score/50, saveFile);
 		
 		final AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 		if(sharedVars.getbIsEng())

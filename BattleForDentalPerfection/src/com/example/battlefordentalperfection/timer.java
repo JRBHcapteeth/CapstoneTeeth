@@ -53,6 +53,8 @@ public class timer extends ActionBarActivity {
 
 		startButton = (Button) findViewById(R.id.startButton);
 		
+		translate();
+		
 		//set the listener for the start button
 		startButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -105,7 +107,25 @@ public class timer extends ActionBarActivity {
 		});
 
 	}
-
+	
+	//if bIsEng is true, text is English. Otherwise, it's Spanish
+		public void translate()
+		{
+			Button startButton = (Button) findViewById(R.id.startButton);
+			Button pauseButton = (Button) findViewById(R.id.pauseButton);
+			
+			if (sharedVars.getbIsEng())
+			{
+				startButton.setText(getString(R.string.startButtonLabelEng));
+				pauseButton.setText(getString(R.string.pauseButtonLabelEng));
+			}
+			else
+			{
+				startButton.setText(getString(R.string.startButtonLabelSpn));
+				pauseButton.setText(getString(R.string.pauseButtonLabelSpn));
+			}
+		};
+		
 	private Runnable updateTimerThread = new Runnable() {
 
 		public void run() {
